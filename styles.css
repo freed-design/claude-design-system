@@ -1,0 +1,14 @@
+/* ============================================================
+   FREED — Design System entry stylesheet.
+   Consumers: link this one file.
+   ============================================================ */
+/* Aurora library tokens (imported from "Library Auroras.fig" — all 4 variable
+   collections, 1037 vars). Loaded FIRST so the curated Freed tokens below win
+   on any name collision. */
+@import url("tokens/fig/fig-tokens.css");
+
+@import url("tokens/fonts.css");
+@import url("tokens/colors.css");
+@import url("tokens/typography.css");
+@import url("tokens/spacing.css");
+@import url("tokens/motion.css");

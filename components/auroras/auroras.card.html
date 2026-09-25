@@ -1,0 +1,63 @@
+<!-- @dsCard group="03 Auroras" viewport="700x680" name="Auroras" subtitle="Singles, floats and full-bleed scenes — one aurora per view" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>*{box-sizing:border-box}html,body{margin:0}body{width:700px;font-family:var(--font-sans);color:var(--ink);background:#fff;padding:16px 20px}.h{font:600 10px/1 var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--neutral-500);margin:0 0 8px}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.cell{display:flex;flex-direction:column;gap:5px}.cap{font:500 9px/1.2 var(--font-mono);color:var(--neutral-500)}.tile{aspect-ratio:16/9;border-radius:8px;overflow:hidden;position:relative}.tile img{width:100%;height:100%;object-fit:cover;display:block}.safe{position:absolute;left:5px;bottom:4px;font:600 8px var(--font-sans);color:var(--ink);background:rgba(255,255,255,.75);border-radius:4px;padding:1px 4px}.hero{margin-top:14px}</style></head>
+<body>
+<p class="h">Orb · ten colorways</p>
+<div class="grid" id="orb"></div>
+<p class="h" style="margin-top:14px">Wave · Funnel</p>
+<div class="grid" id="rest"></div>
+<p class="h hero">Singles · shape × vibe × blur</p>
+<div class="grid" id="singles" style="grid-template-columns:repeat(4,1fr)"></div>
+<p class="h hero">Floats · transparent, over white</p>
+<div class="grid" id="float" style="grid-template-columns:repeat(3,1fr)"></div>
+<p class="h hero">In use — white on dark, ink on light, over full-bleed and float</p>
+<div id="demo"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script>window.__auroraAssetBase='../../assets/auroras/';</script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" data-presets="react">
+const { AuroraFullBleed, AuroraFloat, Aurora } = window.FreedDesignSystem_e5ae95;
+const B = '../../assets/auroras/';
+const SAFE = AuroraFullBleed.textSafe;
+const WHITE = AuroraFullBleed.whiteTextSafe;
+function tiles(el, items) {
+  ReactDOM.createRoot(el).render(<>{items.map(([c,w]) => (
+    <div className="cell" key={c+w}>
+      <div className="tile"><img src={B+'fullbleed-'+c+'-'+w+'.png'} alt=""/>{SAFE[c].indexOf(w)>-1 ? <span className="safe">ink ok</span> : (WHITE[c].indexOf(w)>-1 ? <span className="safe" style={{background:'rgba(0,0,0,.45)',color:'#fff'}}>white ok</span> : null)}</div>
+      <span className="cap">{c === 'orb' ? w : c+' · '+w}</span>
+    </div>
+  ))}</>);
+}
+tiles(document.getElementById('orb'), AuroraFullBleed.compositions.orb.map(w => ['orb', w]));
+tiles(document.getElementById('rest'), [['wave','purple'],['funnel','purple'],['funnel','purple-peach'],['funnel','moss-aqua']]);
+ReactDOM.createRoot(document.getElementById('singles')).render(
+  <>{[['willytheworm','intense','low'],['willytheworm','soft','high'],['pangolin','intense','low'],['slinky','intense','low']].map(([s,v,b]) => (
+    <div className="cell" key={s+v+b}>
+      <div style={{height:82,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}><Aurora shape={s} vibe={v} blur={b} width={150}/></div>
+      <span className="cap">{s} · {v}/{b}</span>
+    </div>
+  ))}</>
+);
+ReactDOM.createRoot(document.getElementById('float')).render(
+  <>{[['doubleboom','purple-fuchsia'],['drift','purple-lilac'],['ember','coral-yellow'],['clover','pepto'],['clover','sky'],['curl','purple'],['swirl','purple-sky']].map(([f,w]) => (
+    <div className="cell" key={f+w}>
+      <div style={{height:96,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}><AuroraFloat float={f} colorway={w} width={190}/></div>
+      <span className="cap">{f} · {w}</span>
+    </div>
+  ))}</>
+);
+ReactDOM.createRoot(document.getElementById('demo')).render(
+  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}>
+    <AuroraFullBleed composition="orb" colorway="purple" position="left center" style={{borderRadius:12,height:120,display:'flex',alignItems:'center',padding:'0 20px'}}>
+      <span className="heading-style-h4 heading-white">Focus on people, not paperwork</span>
+    </AuroraFullBleed>
+    <div style={{position:'relative',height:120,overflow:'hidden',borderRadius:12}}>
+      <AuroraFloat float="ember" colorway="coral-yellow" width={300} style={{position:'absolute',right:-40,top:-60,zIndex:0}}/>
+      <span className="heading-style-h4" style={{position:'relative',display:'block',padding:'42px 0 0 18px',maxWidth:260}}>Work doesn't follow you home</span>
+    </div>
+  </div>
+);
+</script>
+</body></html>

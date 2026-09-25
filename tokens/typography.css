@@ -1,0 +1,95 @@
+/* FREED — Type families, scale, and text utilities.
+   Nunito is a SUBSTITUTE for the proprietary KitRounded display face. */
+:root {
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-display: 'Nunito', 'KitRounded', system-ui, sans-serif; /* marketing headlines */
+  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;  /* body + product UI */
+  --font-mono:    ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---------- TYPE SCALE (marketing) ---------- */
+  --text-display: 600 clamp(44px, 6vw, 76px)/1.02 var(--font-display); /* @kind font */
+  --text-h1:      600 clamp(34px, 4.4vw, 52px)/1.06 var(--font-display); /* @kind font */
+  --text-h2:      600 clamp(26px, 3vw, 36px)/1.12 var(--font-display); /* @kind font */
+  --text-h3:      500 24px/1.2 var(--font-display); /* @kind font */
+  --text-lead:    400 clamp(18px, 1.6vw, 22px)/1.5 var(--font-sans); /* @kind font */
+  --text-body:    400 16px/1.6 var(--font-sans); /* @kind font */
+  --text-sm:      400 14px/1.5 var(--font-sans); /* @kind font */
+  --text-xs:      500 12px/1.4 var(--font-sans); /* @kind font */
+  --text-eyebrow: 600 13px/1 var(--font-sans); /* @kind font */
+
+  --tracking-tight: -0.02em; /* @kind font */
+  --tracking-eyebrow: 0.08em; /* @kind font */
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT DEFAULTS
+   Apply .freed-type to a root to opt into brand typography.
+   ============================================================ */
+.freed-type {
+  font-family: var(--font-sans);
+  color: var(--fg);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.freed-type h1, .freed-display { font: var(--text-h1); color: var(--navy); letter-spacing: var(--tracking-tight); margin: 0; }
+.freed-type h2 { font: var(--text-h2); color: var(--navy); letter-spacing: var(--tracking-tight); margin: 0; }
+.freed-type h3 { font: var(--text-h3); color: var(--navy); margin: 0; }
+.freed-type p  { font: var(--text-body); color: var(--fg); margin: 0; text-wrap: pretty; }
+.freed-eyebrow {
+  font: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--lavender-600);
+}
+
+/* ============================================================
+   FREED — Typography utilities  (Semantic / General)
+   Class names mirror the Figma Text styles & Webflow classes
+   for easy dev parity.
+   • Headings  → KitRounded (SUBSTITUTED with Nunito, var(--font-display)).
+                 Spacing/weight tuned to approximate KitRounded.
+                 Default color is --ink (text black). Headings may also be
+                 the core brand purple (--lavender-600) or white on a darker
+                 background — apply .heading-purple / .heading-white.
+   • Body copy → Inter (var(--font-sans)).
+   Modifiers: -bold (600), -underline, -uppercase.
+   ============================================================ */
+
+.heading-style-h1-large { font-family: var(--font-display); font-size: 96px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin: 0; }
+.heading-style-h1 { font-family: var(--font-display); font-size: 55px; font-weight: 400; line-height: 1.1; letter-spacing: -0.015em; color: var(--ink); margin: 0; }
+.heading-style-h2 { font-family: var(--font-display); font-size: 46px; font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); margin: 0; }
+.heading-style-h3 { font-family: var(--font-display); font-size: 36px; font-weight: 400; line-height: 1.3; letter-spacing: -0.005em; color: var(--ink); margin: 0; }
+.heading-style-h4 { font-family: var(--font-display); font-size: 24px; font-weight: 500; line-height: 1.3; letter-spacing: 0; color: var(--ink); margin: 0; }
+.heading-style-h5 { font-family: var(--font-display); font-size: 20px; font-weight: 500; line-height: 1.4; letter-spacing: 0; color: var(--ink); margin: 0; }
+.heading-style-h6 { font-family: var(--font-display); font-size: 18px; font-weight: 500; line-height: 1.4; letter-spacing: 0; color: var(--ink); margin: 0; }
+
+/* Heading color modifiers — black is default; purple or white (on dark bg). */
+.heading-purple { color: var(--lavender-600); }
+.heading-white  { color: var(--white); }
+
+.text-size-x-large { font-family: var(--font-sans); font-size: 24px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-x-large-bold { font-family: var(--font-sans); font-size: 24px; font-weight: 600; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-x-large-underline { font-family: var(--font-sans); font-size: 24px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-decoration: underline; }
+.text-size-x-large-uppercase { font-family: var(--font-sans); font-size: 24px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-transform: uppercase; letter-spacing: 0.04em; }
+.text-size-large { font-family: var(--font-sans); font-size: 22px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-large-bold { font-family: var(--font-sans); font-size: 22px; font-weight: 600; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-large-underline { font-family: var(--font-sans); font-size: 22px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-decoration: underline; }
+.text-size-large-uppercase { font-family: var(--font-sans); font-size: 22px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-transform: uppercase; letter-spacing: 0.04em; }
+.text-size-medium { font-family: var(--font-sans); font-size: 20px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-medium-bold { font-family: var(--font-sans); font-size: 20px; font-weight: 600; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-medium-underline { font-family: var(--font-sans); font-size: 20px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-decoration: underline; }
+.text-size-medium-uppercase { font-family: var(--font-sans); font-size: 20px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-transform: uppercase; letter-spacing: 0.04em; }
+.text-size-regular { font-family: var(--font-sans); font-size: 18px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-regular-bold { font-family: var(--font-sans); font-size: 18px; font-weight: 600; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-regular-underline { font-family: var(--font-sans); font-size: 18px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-decoration: underline; }
+.text-size-regular-uppercase { font-family: var(--font-sans); font-size: 18px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-transform: uppercase; letter-spacing: 0.04em; }
+.text-size-small { font-family: var(--font-sans); font-size: 16px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-small-bold { font-family: var(--font-sans); font-size: 16px; font-weight: 600; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-small-underline { font-family: var(--font-sans); font-size: 16px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-decoration: underline; }
+.text-size-small-uppercase { font-family: var(--font-sans); font-size: 16px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-transform: uppercase; letter-spacing: 0.04em; }
+.text-size-tiny { font-family: var(--font-sans); font-size: 14px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-tiny-bold { font-family: var(--font-sans); font-size: 14px; font-weight: 600; line-height: 1.4; color: var(--ink); margin: 0; }
+.text-size-tiny-underline { font-family: var(--font-sans); font-size: 14px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-decoration: underline; }
+.text-size-tiny-uppercase { font-family: var(--font-sans); font-size: 14px; font-weight: 400; line-height: 1.4; color: var(--ink); margin: 0; text-transform: uppercase; letter-spacing: 0.04em; }

@@ -1,0 +1,219 @@
+/* FREED — Color tokens. Hero color: Lavender #6A3CDF. */
+:root {
+  /* ---------- BRAND CORE ---------- */
+  --lavender: var(--lavender-600); /* hero — the color people associate with Freed */
+  --lavender-bright: var(--lavender-500); /* lighter, vivid lavender accents */
+  --lavender-deep: var(--lavender-700);   /* pressed / dense lavender */
+  /* FreedNavy is retired. Headings default to TEXT BLACK, so --navy now
+     resolves to --ink (#212121) — NOT purple. Kept as an alias so older
+     code that referenced --navy renders black, as intended.
+     For a purple or white heading, use .heading-purple / .heading-white. */
+  --navy: var(--ink);          /* text black — was FreedNavy, now neutral ink */
+  --navy-soft: var(--neutral-700);
+  --ink-deep: var(--lavender-950);  /* the deepest purple, when you truly want it */
+
+  /* ---------- LAVENDER SCALE (primary) — the canonical 11-step ramp ---------- */
+  --lavender-50:  #f8f5ff;
+  --lavender-100: #f0ebff;
+  --lavender-200: #e5dbff;
+  --lavender-300: #d3c2ff;
+  --lavender-400: #b699ff;
+  --lavender-500: #9166ff;
+  --lavender-600: #6a3cdf;  /* primary / hero */
+  --lavender-700: #5c33c3;
+  --lavender-800: #4d2ba1;
+  --lavender-900: #301574;
+  --lavender-950: #15004b;
+
+  /* ---------- SUPPORTING PALETTES (use strategically) ---------- */
+  /* Saline — calm blue (canonical 11-step ramp) */
+  --saline-50:  #ebf2fe;
+  --saline-100: #dce8fe;
+  --saline-200: #ceddfd;
+  --saline-300: #b9cdfb;
+  --saline-400: #9fb9fa;
+  --saline-500: #8ba8fe;
+  --saline-600: #557bf7;
+  --saline-700: #2c51d8;
+  --saline-800: #0e30a6;
+  --saline-900: #041b6c;
+  --saline-950: #041144;
+
+  /* Pepto — pink (canonical 11-step ramp) */
+  --pepto-50:  #fff0f7;
+  --pepto-100: #ffe0f0;
+  --pepto-200: #ffc7e4;
+  --pepto-300: #ffa3d1;
+  --pepto-400: #ff7fbe;
+  --pepto-500: #f95daa;
+  --pepto-600: #f13b95;
+  --pepto-700: #e02482;
+  --pepto-800: #b11b66;
+  --pepto-900: #8d275a;
+  --pepto-950: #68334d;
+
+  /* Focus Green — success / vitals (canonical 11-step ramp) */
+  --green-50:  #f0fef2;
+  --green-100: #e2fde6;
+  --green-200: #c6fbcd;
+  --green-300: #a7f1b1;
+  --green-400: #83ec91;
+  --green-500: #62e774;
+  --green-600: #34cb48;
+  --green-700: #23a935;
+  --green-800: #117e21;
+  --green-900: #12591e;
+  --green-950: #004709;
+  --green-0:   var(--green-500);  /* Focus Green as the annotation ink — always #62e774 */
+
+  /* X-ray — teal / cyan (canonical 11-step ramp) */
+  --xray-50:  #edfdfd;
+  --xray-100: #dbfaf9;
+  --xray-200: #bbf8f5;
+  --xray-300: #97f2ed;
+  --xray-400: #63e9e2;
+  --xray-500: #0ed6cc;
+  --xray-600: #0ec0b7;
+  --xray-700: #0b9992;
+  --xray-800: #007f79;
+  --xray-900: #005955;
+  --xray-950: #03403d;
+
+  /* Yellow — caution / highlight (canonical 5-step ramp) */
+  --yellow-50:  #fffdea;
+  --yellow-100: #fff9ad;
+  --yellow-500: #f6e600;
+  --yellow-700: #7d7500;
+  --yellow-900: #413d05;
+  /* legacy "Bone" aliases — resolve to Yellow ramp, no new colors */
+  --bone-100: var(--yellow-50);
+  --bone-200: var(--yellow-100);
+  --bone-300: var(--yellow-100);
+  --bone-500: var(--yellow-500);
+  --bone-600: var(--yellow-500);
+
+  /* Red — error / danger (canonical 5-step ramp) */
+  --red-50:  #ffecea;
+  --red-200: #ffb7ad;
+  --red-500: #f61c00;
+  --red-700: #9e2414;
+  --red-900: #280501;
+  /* legacy aliases — resolve to Red ramp */
+  --ruby-50:  var(--red-50);
+  --ruby-100: var(--red-50);
+  --ruby-200: var(--red-200);
+  --ruby-500: var(--red-500);
+  --ruby-600: var(--red-500);
+  --ruby-700: var(--red-700);
+  --ruby-900: var(--red-900);
+
+  /* ---------- NEUTRALS (canonical 11-step ramp) ---------- */
+  --white:      #ffffff;
+  --neutral-50: #f7f7f7;
+  --neutral-100:#e8e8e8;
+  --neutral-200:#d9d9d9;
+  --neutral-300:#c9c9c9;
+  --neutral-400:#b3b3b3;
+  --neutral-500:#999999;
+  --neutral-600:#737373;
+  --neutral-700:#4c4c4c;
+  --neutral-800:#212121;
+  --black:      #000000;
+  --ink:        #212121;   /* the workhorse text color (= neutral-800) */
+  /* legacy aliases — resolve to ramp values, no new colors */
+  --neutral-25:  var(--neutral-50);
+  --neutral-150: var(--neutral-100);
+
+  /* ============================================================
+     ICON TREATMENTS  (Semantic / General — Icons)
+     Phosphor Icon Set in on-brand containers.
+     Four treatments × two shapes (tile / circle). Only the icon
+     glyph swaps. Color families: primary, green, saline, xray,
+     pepto, error, neutral.
+       • flat-white  → solid bg + white icon
+       • flat-tonal  → base bg  + dark same-family icon
+       • glass-white → hazy bg  + white icon
+       • glass-tonal → hazy bg  + dark same-family icon
+     ============================================================ */
+  /* Icons are decorative graphics, NOT text — they are exempt from the AA text-contrast
+     rule. Containers use one consistent step per treatment across every family:
+       white glyph → the family's 400 step   (red/neutral use their nearest light step)
+       tonal glyph → the family's 300 step
+     solid backgrounds (flat-white) */
+  --icon-bg-primary: var(--lavender-400); /* #b699ff */
+  --icon-bg-green:   var(--green-400);    /* #83ec91 */
+  --icon-bg-saline:  var(--saline-400);   /* #9fb9fa */
+  --icon-bg-xray:    var(--xray-400);     /* #63e9e2 */
+  --icon-bg-pepto:   var(--pepto-400);    /* #ff7fbe */
+  --icon-bg-error:   var(--red-200);      /* #ffb7ad */
+  --icon-bg-neutral: var(--neutral-400);  /* #b3b3b3 */
+
+  /* flat-tonal backgrounds — the family's 300 step, one shade lighter than the white-glyph
+     containers, so the dark same-family glyph reads clearly. */
+  --icon-tonalbg-primary: var(--lavender-300); /* #d3c2ff */
+  --icon-tonalbg-green:   var(--green-300);    /* #a7f1b1 */
+  --icon-tonalbg-saline:  var(--saline-300);   /* #b9cdfb */
+  --icon-tonalbg-xray:    var(--xray-300);     /* #97f2ed */
+  --icon-tonalbg-pepto:   var(--pepto-300);    /* #ffa3d1 */
+  --icon-tonalbg-neutral: var(--neutral-50);
+
+  /* hazy "glass" backgrounds — same steps as flat; the blur and hairline do the work */
+  --icon-glass-primary: var(--icon-bg-primary);
+  --icon-glass-green:   var(--icon-bg-green);
+  --icon-glass-saline:  var(--icon-bg-saline);
+  --icon-glass-xray:    var(--icon-bg-xray);
+  --icon-glass-pepto:   var(--icon-bg-pepto);
+  --icon-glass-error:   var(--icon-bg-error);
+  --icon-glass-neutral: var(--icon-bg-neutral);
+
+  /* hazy "glass" backgrounds for the TONAL glyph */
+  --icon-glass-tonalbg-primary: var(--icon-tonalbg-primary);
+  --icon-glass-tonalbg-green:   var(--icon-tonalbg-green);
+  --icon-glass-tonalbg-saline:  var(--icon-tonalbg-saline);
+  --icon-glass-tonalbg-xray:    var(--icon-tonalbg-xray);
+  --icon-glass-tonalbg-pepto:   var(--icon-tonalbg-pepto);
+  --icon-glass-tonalbg-error:   var(--red-50);
+  --icon-glass-tonalbg-neutral: var(--icon-tonalbg-neutral);
+
+  /* tonal icon glyph colors (dark same-family shades) */
+  --icon-tonal-primary: var(--lavender-600); /* #6a3cdf */
+  --icon-tonal-green:   var(--green-900);    /* #12591e */
+  --icon-tonal-saline:  var(--saline-900);   /* #041b6c */
+  --icon-tonal-xray:    var(--xray-900);     /* #005955 */
+  --icon-tonal-pepto:   var(--pepto-900);    /* #8d275a */
+  --icon-tonal-error:   var(--red-700);      /* #9e2414 */
+  --icon-tonal-neutral: var(--lavender-600);
+
+  --icon-glyph-white: var(--white);
+
+  /* ============================================================
+     ELEVATION — drop-shadow scale (Semantic / General).
+     Neutral, soft shadows. A surface carries ONE layer (two max);
+     never stack elevation (e.g. no elevated icon on an elevated card).
+     ============================================================ */
+  --elevation-small:  0 1px 3px rgba(18,18,28,0.10), 0 1px 2px rgba(18,18,28,0.06);
+  --elevation-medium: 0 4px 12px rgba(18,18,28,0.10), 0 1px 3px rgba(18,18,28,0.06);
+  --elevation-large:  0 12px 28px rgba(18,18,28,0.12), 0 4px 8px rgba(18,18,28,0.05);
+
+  /* ---------- SEMANTIC ---------- */
+  --bg:            var(--white);
+  --bg-subtle:     var(--neutral-50);
+  --bg-lavender:   var(--lavender-100);
+  --fg:            var(--ink);
+  --fg-muted:      var(--neutral-500);
+  --fg-on-dark:    var(--white);
+  --fg-on-lav:     var(--white);
+  --border:        var(--neutral-200);
+  --border-strong: var(--neutral-300);
+
+  --primary:        var(--lavender-600);
+  --primary-hover:  var(--lavender-500);
+  --primary-press:  var(--lavender-700);
+  --primary-tint:   var(--lavender-100);
+
+  --success: var(--green-600);
+  --info:    var(--saline-600);
+  --warning: var(--yellow-500);
+  --danger:  var(--red-500);
+
+}

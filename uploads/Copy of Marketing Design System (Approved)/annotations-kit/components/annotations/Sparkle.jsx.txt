@@ -1,0 +1,24 @@
+// figma node: 12985:1851 Sparkle (3 variants) — digital redraw: constant stroke width
+const __kSt = (w) => ({ fill: "none", stroke: "currentColor", strokeWidth: w, strokeLinecap: "round", strokeLinejoin: "round" });
+const __kWrap = (props, w, h, paths) => (
+  <div className={props.className} style={{ width: w, height: h, position: "relative", color: "var(--green-0, #62E774)", ...props.style }}>
+    <svg width={w} height={h} viewBox={"0 0 " + w + " " + h} style={{ position: "absolute", left: 0, top: 0 }}>
+      {paths.map((d, i) => <path key={i} d={d} {...__kSt(props.strokeWidth)} />)}
+    </svg>
+  </div>
+);
+export function Sparkle(_p = {}) {
+  const props = { ..._p, type: _p.type ?? "01", strokeWidth: _p.strokeWidth ?? 3 };
+  if (props.style && props.style.color) {
+    console.warn('Sparkle: annotations are always Freed Focus green (#62E774) — the color override was ignored.');
+    props.style = { ...props.style }; delete props.style.color;
+  }
+  const __impls = {
+    // three strokes fanning up-and-right from a common origin, like a burst
+    "type=01": () => __kWrap(props, 46, 47, ["M6.5 21 L 10 7", "M17.5 27 L 29 14.5", "M27 40 L 42 36"]),
+    "type=02": () => __kWrap(props, 97, 35, ["M13 24 L 18 9", "M38 26 L 51 12", "M65 29 L 84 24", "M87 12 L 92 8"]),
+    "type=03": () => __kWrap(props, 40, 39, ["M6 17.5 L 9 6", "M15 22.5 L 25 12", "M23 33.5 L 36 30"]),
+  };
+  return (__impls["type=" + props.type] ?? __impls["type=01"])();
+}
+export default Sparkle;

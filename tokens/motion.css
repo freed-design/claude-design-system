@@ -1,0 +1,8 @@
+/* FREED — motion. Auroras drift slowly or not at all; nothing else animates here. */
+@keyframes aurora-drift {
+  from { transform: scale(1.04) translate3d(-1.2%, -0.8%, 0); }
+  to   { transform: scale(1.12) translate3d(1.2%, 0.8%, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [style*="aurora-drift"] { animation: none !important; }
+}
