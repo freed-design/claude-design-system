@@ -108,12 +108,16 @@
         "message": "<Card> elevation must be one of 'none' | 'small' | 'primary'."
       },
       {
-        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|color|effect|shape|size|key|ref|className|style|children)$/]",
-        "message": "<Icon> doesn't accept that prop. Declared props: name, color, effect, shape, size."
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|color|effect|shape|size|weight|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, color, effect, shape, size, weight."
       },
       {
         "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute[name.name='effect'] > Literal[value!=/^(?:flat|glass)$/]",
         "message": "<Icon> effect must be one of 'flat' | 'glass'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute[name.name='weight'] > Literal[value!=/^(?:thin|light|regular|bold|fill|duotone)$/]",
+        "message": "<Icon> weight must be one of 'thin' | 'light' | 'regular' | 'bold' | 'fill' | 'duotone'."
       },
       {
         "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute[name.name='shape'] > Literal[value!=/^(?:tile|circle)$/]",

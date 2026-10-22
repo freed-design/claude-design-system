@@ -22,4 +22,5 @@ python3 "$HERE/3_type_layout.py"
 python3 "$HERE/4_effects.py" >/dev/null
 python3 "$HERE/5_specimen_cards.py"
 python3 "$HERE/6_logos.py"
+python3 "$HERE/7_variables.py"
 echo "Done. Review the diff, then rebuild the bundle if component code changed: scripts/figma-sync/build-bundle.sh"

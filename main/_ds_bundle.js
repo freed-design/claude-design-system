@@ -584,21 +584,28 @@ const GLASS_BG = {
   success: "success",
   error: "error"
 };
+const WEIGHTS = ["thin", "light", "regular", "bold", "fill", "duotone"];
 const SIZES = { primary: { box: 50, glyph: 26, radius: "var(--border-radius-small)" }, small: { box: 20, glyph: 12, radius: "var(--border-radius-xsmall)" } };
 const LEGACY_COLOR = { green: "success", saline: "alternate-01", xray: "alternate-02", pepto: "alternate-03", neutral: "secondary" };
 const __svgCache = /* @__PURE__ */ new Map();
-function fetchGlyph(name) {
-  if (__svgCache.has(name)) return __svgCache.get(name);
-  const res = (typeof window !== "undefined" && window.__resources || {})["icon_" + name];
-  const url = res || "https://cdn.jsdelivr.net/npm/@phosphor-icons/core@2.1.1/assets/regular/" + name + ".svg";
+function fetchGlyph(name, weight) {
+  const file = weight === "regular" ? name : name + "-" + weight;
+  if (__svgCache.has(file)) return __svgCache.get(file);
+  const res = (typeof window !== "undefined" && window.__resources || {})["icon_" + file];
+  if (typeof res === "string" && res.trim().indexOf("<svg") === 0) {
+    const inline = Promise.resolve(res);
+    __svgCache.set(file, inline);
+    return inline;
+  }
+  const url = res || "https://cdn.jsdelivr.net/npm/@phosphor-icons/core@2.1.1/assets/" + weight + "/" + file + ".svg";
   const p = fetch(url).then((r) => r.ok ? r.text() : "").catch(() => "");
-  __svgCache.set(name, p);
+  __svgCache.set(file, p);
   return p;
 }
 function sizeSvg(svg, px) {
   return svg.replace(/<svg /, '<svg width="' + px + '" height="' + px + '" style="display:block" ').replace(/fill="#[0-9a-fA-F]+"/g, 'fill="currentColor"');
 }
-function Icon({ name = "heart", color = "primary", effect, shape = "tile", size = "primary", treatment }) {
+function Icon({ name = "heart", color = "primary", effect, shape = "tile", size = "primary", weight = "light", treatment }) {
   let c = color;
   if (COLORS.indexOf(c) === -1) {
     if (LEGACY_COLOR[c]) {
@@ -615,6 +622,11 @@ function Icon({ name = "heart", color = "primary", effect, shape = "tile", size 
     fx = String(treatment).indexOf("glass") === 0 ? "glass" : "flat";
   }
   fx = fx === "glass" ? "glass" : "flat";
+  let w = String(weight).toLowerCase();
+  if (WEIGHTS.indexOf(w) === -1) {
+    console.warn('Icon: unknown weight "' + weight + '". Use one of: ' + WEIGHTS.join(", "));
+    w = "light";
+  }
   const preset = SIZES[size];
   const px = preset ? preset.box : Number(size) || 50;
   const glyph = preset ? preset.glyph : Math.round(px * 0.52);
@@ -622,13 +634,13 @@ function Icon({ name = "heart", color = "primary", effect, shape = "tile", size 
   const [svg, setSvg] = React.useState(null);
   React.useEffect(() => {
     let live = true;
-    fetchGlyph(name).then((t) => {
+    fetchGlyph(name, w).then((t) => {
       if (live) setSvg(t || "");
     });
     return () => {
       live = false;
     };
-  }, [name]);
+  }, [name, w]);
   const glyphColor = c === "secondary" ? fx === "glass" ? "var(--icon-icon-color-secondary-glass)" : "var(--icon-icon-color-secondary)" : "var(--icon-icon-color-primary)";
   const container = {
     width: px + "px",
@@ -646,6 +658,7 @@ function Icon({ name = "heart", color = "primary", effect, shape = "tile", size 
   return /* @__PURE__ */ React.createElement("span", { role: "img", "aria-label": name, style: container }, svg ? /* @__PURE__ */ React.createElement("span", { style: { width: glyph + "px", height: glyph + "px", display: "block", color: "inherit" }, dangerouslySetInnerHTML: { __html: sizeSvg(svg, glyph) } }) : /* @__PURE__ */ React.createElement("span", { style: { width: glyph + "px", height: glyph + "px", opacity: 0 } }));
 }
 Icon.colors = COLORS;
+Icon.weights = WEIGHTS;
 
 Object.assign(__ds_scope, { Icon });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/icons/Icon.jsx", error: String((e && e.message) || e) }); }

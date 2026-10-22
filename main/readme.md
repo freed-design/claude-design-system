@@ -92,6 +92,8 @@ purple 600, saline 500, pepto 400, green 500, x-ray 400, neutral 900, yellow 400
   (`background-*`, `text-color-*`, `border-color-*`, `buttons-*`, `icon-*`, `tags-*`, `glass-cards-*`,
   `bubble-cards-*`, `glow-cards-*`, `petri-cards-*`, `link-color-*`, `logo-color-*`, `elevation-*`).
   **Reach for Theme tokens first** — they are the only layer that switches with dark mode.
+  `tokens/figma-variables.json` holds all four Figma collections (Base, Theme, Typography, Layout) in Figma's
+  own group structure and order, with each variable's CSS name, values per mode and alias.
 - Support ramps — Saline, Pepto, Focus Green, X-ray — are used *strategically*, mostly as icon, tag and
   card accents, never as large competing fields. Yellow (caution), Red (error) and Orange (warning) are
   5-step ramps used only for meaning.
@@ -324,6 +326,7 @@ included in the imported bundle.
 | `assets/` | Logo lockups (3 colors, PNG), 8 Phosphor glyph SVGs, aurora PNGs, the tag reference SVG. |
 | `assets/logos/` | SVG logos and badges exported from Figma: Freed full/icon/text in purple, black and white; HIPAA, SOC 2, certification and Loved-by in black and white. |
 | `components/` | `Button`, `Card`, `Icon`, `Logo`, `Tag`, the aurora components and the annotations (+ `.d.ts`, `.prompt.md`, specimen cards). |
+| `components/examples/` | Page-level examples built only from the components, tokens and text styles: a landing hero, a feature grid and a closing call to action (specimen cards, group "10 Examples"). The copy is placeholder. |
 | `_ds_bundle.js` | All components as one script assigning `window.FreedDesignSystem_e5ae95`. |
 | `guidelines/*.card.html` | Foundation specimens shown in the Design System tab, generated from the tokens. |
 | `guidelines/overview.html` | Legacy: the original "Design System Overview" page from before the Figma alignment. |

@@ -1,0 +1,32 @@
+<!-- @dsCard group="10 Examples" viewport="1200x450" name="Example · Call to action" subtitle="A closing call to action on background-alternate-01, with one Underline annotation and the certification badge" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>*{box-sizing:border-box}html,body{margin:0}body{font-family:var(--font-family-body);color:var(--text-color-primary);background:var(--background-primary)}h1,h2,h3,h4,h5,h6,p{margin:0}
+.out{padding:56px;background:var(--background-primary)}
+.band{background:var(--background-alternate-01);border-radius:var(--border-radius-large);padding:56px 64px;display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:center}
+.copy{display:flex;flex-direction:column;gap:18px}
+.mark{position:relative;display:inline-block;white-space:nowrap}
+.mark .u{position:absolute;left:0;right:0;bottom:-14px}
+.actions{display:flex;gap:16px;margin-top:10px}
+.side{display:flex;flex-direction:column;align-items:center;gap:18px}
+.side p{color:var(--text-color-secondary);text-align:center}
+body{width:1200px}</style></head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script>
+
+</script>
+<script src="../../_ds_bundle.js"></script>
+<script>
+var DS = window.FreedDesignSystem_e5ae95, h = React.createElement;
+
+function CTA(){return h('div',{className:'out'},h('section',{className:'band'},
+  h('div',{className:'copy'},
+    h('h2',{className:'headlines-h2'},'Earn back your ',h('span',{className:'mark'},'evenings',h('span',{className:'u'},h(DS.Underline,{type:'02',style:{width:'100%'}})))),
+    h('p',{className:'body-large'},'Try Freed on your next visit and see the note before you leave the room.'),
+    h('div',{className:'actions'},h(DS.Button,{label:'Start for free',size:'small'}),h(DS.Button,{label:'Book a demo',size:'small',variant:'secondary'}))),
+  h('div',{className:'side'},h(DS.Logo,{name:'certification',height:72}),h('p',{className:'body-xsmall'},'HIPAA and SOC 2 compliant.'))));}
+ReactDOM.createRoot(document.getElementById('root')).render(h(CTA));
+</script>
+</body></html>

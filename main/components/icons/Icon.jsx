@@ -2,8 +2,9 @@ import React from 'react';
 
 /* Phosphor glyph in an on-brand container, aligned with the Figma "icon/container" component
    (2026-10-21): Color × Size × Shape × Effect. Every value comes from the generated tokens, so dark
-   mode follows [data-theme="dark"]. Glyphs load from the Phosphor CDN unless the host page
-   pre-registers them on window.__resources['icon_<name>']. */
+   mode follows [data-theme="dark"]. Glyphs load from the Phosphor CDN in the chosen weight unless the
+   host page pre-registers them on window.__resources['icon_<name>'] (regular) or
+   window.__resources['icon_<name>-<weight>'] (any other weight), as a URL or as the SVG markup itself. */
 
 const COLORS = ['primary', 'secondary', 'alternate-01', 'alternate-02', 'alternate-03', 'success', 'error'];
 /* Glass containers reuse the Glass Cards tints; Figma pairs primary (purple) with glass "secondary"
@@ -12,18 +13,28 @@ const GLASS_BG = {
   primary: 'secondary', secondary: 'primary', 'alternate-01': 'alternate-01', 'alternate-02': 'alternate-02',
   'alternate-03': 'alternate-03', success: 'success', error: 'error',
 };
+/* Phosphor's six weights, as in the Figma glyph components (Weight=Thin … Duotone). Figma's icon
+   containers hold the Light weight, so Light is the default. */
+const WEIGHTS = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
 const SIZES = { primary: { box: 50, glyph: 26, radius: 'var(--border-radius-small)' }, small: { box: 20, glyph: 12, radius: 'var(--border-radius-xsmall)' } };
 
 /* Props used before the Figma alignment, mapped with a console warning. */
 const LEGACY_COLOR = { green: 'success', saline: 'alternate-01', xray: 'alternate-02', pepto: 'alternate-03', neutral: 'secondary' };
 
 const __svgCache = new Map();
-function fetchGlyph(name) {
-  if (__svgCache.has(name)) return __svgCache.get(name);
-  const res = (typeof window !== 'undefined' && window.__resources || {})['icon_' + name];
-  const url = res || ('https://cdn.jsdelivr.net/npm/@phosphor-icons/core@2.1.1/assets/regular/' + name + '.svg');
+function fetchGlyph(name, weight) {
+  const file = weight === 'regular' ? name : name + '-' + weight;
+  if (__svgCache.has(file)) return __svgCache.get(file);
+  const res = (typeof window !== 'undefined' && window.__resources || {})['icon_' + file];
+  /* A registered value is either a URL to fetch or the SVG markup itself (no network at all). */
+  if (typeof res === 'string' && res.trim().indexOf('<svg') === 0) {
+    const inline = Promise.resolve(res);
+    __svgCache.set(file, inline);
+    return inline;
+  }
+  const url = res || ('https://cdn.jsdelivr.net/npm/@phosphor-icons/core@2.1.1/assets/' + weight + '/' + file + '.svg');
   const p = fetch(url).then(r => (r.ok ? r.text() : '')).catch(() => '');
-  __svgCache.set(name, p);
+  __svgCache.set(file, p);
   return p;
 }
 
@@ -34,7 +45,7 @@ function sizeSvg(svg, px) {
 }
 
 /* Numeric props may arrive as strings (markup attributes, x-import, JSON data). */
-export function Icon({ name = 'heart', color = 'primary', effect, shape = 'tile', size = 'primary', treatment }) {
+export function Icon({ name = 'heart', color = 'primary', effect, shape = 'tile', size = 'primary', weight = 'light', treatment }) {
   let c = color;
   if (COLORS.indexOf(c) === -1) {
     if (LEGACY_COLOR[c]) { console.warn('Icon: color "' + c + '" was renamed to "' + LEGACY_COLOR[c] + '" to match Figma.'); c = LEGACY_COLOR[c]; }
@@ -46,6 +57,8 @@ export function Icon({ name = 'heart', color = 'primary', effect, shape = 'tile'
     fx = String(treatment).indexOf('glass') === 0 ? 'glass' : 'flat';
   }
   fx = fx === 'glass' ? 'glass' : 'flat';
+  let w = String(weight).toLowerCase();
+  if (WEIGHTS.indexOf(w) === -1) { console.warn('Icon: unknown weight "' + weight + '". Use one of: ' + WEIGHTS.join(', ')); w = 'light'; }
 
   const preset = SIZES[size];
   const px = preset ? preset.box : (Number(size) || 50);
@@ -55,9 +68,9 @@ export function Icon({ name = 'heart', color = 'primary', effect, shape = 'tile'
   const [svg, setSvg] = React.useState(null);
   React.useEffect(() => {
     let live = true;
-    fetchGlyph(name).then(t => { if (live) setSvg(t || ''); });
+    fetchGlyph(name, w).then(t => { if (live) setSvg(t || ''); });
     return () => { live = false; };
-  }, [name]);
+  }, [name, w]);
 
   const glyphColor = c === 'secondary'
     ? (fx === 'glass' ? 'var(--icon-icon-color-secondary-glass)' : 'var(--icon-icon-color-secondary)')
@@ -79,3 +92,4 @@ export function Icon({ name = 'heart', color = 'primary', effect, shape = 'tile'
 }
 
 Icon.colors = COLORS;
+Icon.weights = WEIGHTS;

@@ -19,6 +19,7 @@ Needs `python3` and the `zstd` command (`brew install zstd`). Intermediate files
 | `tokens/spacing.css` | The **Layout** collection: border radius and width, spacing, button and card padding, containers |
 | `tokens/effects.css` | The local effect styles as `--effect-*` box-shadow lists |
 | `guidelines/*.card.html` | The specimen cards, regenerated from the above |
+| `tokens/figma-variables.json` | The four variable collections (Base, Theme, Typography, Layout) in Figma's own structure and order: each variable's Figma path, CSS name, and per-mode value and alias. The design system's Variables page is built from it |
 | `assets/logos/*.svg` and the path data in `components/logos/Logo.jsx` | The `Logos/*` components (Freed full/icon/text, HIPAA, SOC 2, certification, Loved by), exported from their vector data in the approved colours |
 
 It does not touch `tokens/fonts.css`, `motion.css` or `aurora-palette.css`, which are maintained by hand.
@@ -27,7 +28,7 @@ It does not touch `tokens/fonts.css`, `motion.css` or `aurora-palette.css`, whic
 
 1. `figkiwi.py` unzips the `.fig` and decodes its kiwi-encoded `canvas.fig` into `msg.json`.
 2. `1_collect.py` resolves variable aliases and `COMPOSE_COLOR` opacity expressions per mode. Collections are found by name (Base, Theme, Typography, Layout), so the file can be re-exported freely. Where a library variable appears in two versions, the newest wins.
-3. `2_…` to `6_…` write the files listed above.
+3. `2_…` to `7_…` write the files listed above.
 
 ## Decisions built into the scripts
 

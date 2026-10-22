@@ -1,0 +1,48 @@
+<!-- @dsCard group="10 Examples" viewport="1200x660" name="Example · Hero" subtitle="A landing-page hero: nav, h1, body, buttons, trust badges and a glow card on the purple-soft orb" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>*{box-sizing:border-box}html,body{margin:0}body{font-family:var(--font-family-body);color:var(--text-color-primary);background:var(--background-primary)}h1,h2,h3,h4,h5,h6,p{margin:0}
+.hero{min-height:640px}
+.inner{padding:28px 56px 56px;display:flex;flex-direction:column;gap:72px}
+.nav{display:flex;align-items:center;gap:32px}
+.nav .links{display:flex;gap:28px;margin-left:auto}
+.nav .links a{color:var(--text-color-primary);text-decoration:none}
+.nav .cta{display:flex;gap:12px}
+.body{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.copy{display:flex;flex-direction:column;gap:20px;max-width:600px}
+.actions{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
+.trust{display:flex;align-items:center;gap:28px;margin-top:28px}
+.moment{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+body{width:1200px}</style></head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script>
+window.__auroraAssetBase='../../assets/auroras/';
+window.__resources=Object.assign(window.__resources||{},{"icon_microphone": "../../assets/icons/microphone.svg", "icon_calendar-blank": "../../assets/icons/calendar-blank.svg", "icon_stethoscope": "../../assets/icons/stethoscope.svg"});
+</script>
+<script src="../../_ds_bundle.js"></script>
+<script>
+var DS = window.FreedDesignSystem_e5ae95, h = React.createElement;
+
+function Hero(){
+  return h(DS.AuroraFullBleed,{composition:'orb',colorway:'purple-soft',style:{minHeight:640}},
+    h('div',{className:'inner'},
+      h('nav',{className:'nav','aria-label':'Main'},
+        h(DS.Logo,{height:24}),
+        h('div',{className:'links body-small'},h('a',{href:'#'},'Product'),h('a',{href:'#'},'Front Desk'),h('a',{href:'#'},'Security')),
+        h('div',{className:'cta'},h(DS.Button,{label:'Log in',variant:'secondary',size:'xsmall'}),h(DS.Button,{label:'Start for free',size:'xsmall'}))),
+      h('div',{className:'body'},
+        h('div',{className:'copy'},
+          h('p',{className:'eyebrows-small'},'Ambient AI scribe'),
+          h('h1',{className:'headlines-h1'},'Focus on people, not paperwork'),
+          h('p',{className:'body-large'},'Freed listens to the visit and writes the note, so work doesn\u2019t follow you home.'),
+          h('div',{className:'actions'},h(DS.Button,{label:'Start for free',size:'small',icon:'microphone'}),h(DS.Button,{label:'Book a demo',size:'small',variant:'secondary',trailingIcon:'calendar-blank'})),
+          h('div',{className:'trust'},h(DS.Logo,{name:'loved-by',height:56}),h(DS.Logo,{name:'hipaa',height:40}),h(DS.Logo,{name:'soc2',height:52}))),
+        h('div',{className:'moment'},
+          h(DS.Tag,{label:'AI note',icon:'stethoscope'}),
+          h(DS.Card,{effect:'glow',color:'primary',title:'Note ready',body:'Chief complaint, history, assessment and plan, ready for you to review and sign.',style:{maxWidth:420}})))));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(Hero));
+</script>
+</body></html>
