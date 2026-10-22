@@ -4,6 +4,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Freed — Design System Overview</title>
 <link rel="stylesheet" href="../styles.css">
+<style>
+  /* LEGACY PAGE: this is the original "Design System Overview" from before the Figma alignment (2026-10-21).
+     Its icon matrix uses retired icon-* names; they are mapped here to the closest current tokens so it still renders. */
+  :root {
+    --icon-glyph-white: var(--icon-icon-color-primary);
+    --icon-bg-green: var(--icon-bg-success); --icon-bg-saline: var(--icon-bg-alternate-01); --icon-bg-xray: var(--icon-bg-alternate-02); --icon-bg-pepto: var(--icon-bg-alternate-03); --icon-bg-neutral: var(--neutral-500);
+    --icon-glass-primary: var(--glass-cards-bg-secondary); --icon-glass-green: var(--glass-cards-bg-success); --icon-glass-saline: var(--glass-cards-bg-alternate-01); --icon-glass-xray: var(--glass-cards-bg-alternate-02); --icon-glass-pepto: var(--glass-cards-bg-alternate-03); --icon-glass-error: var(--glass-cards-bg-error); --icon-glass-neutral: var(--glass-cards-bg-primary);
+    --icon-tonalbg-primary: var(--purple-300); --icon-tonalbg-green: var(--green-300); --icon-tonalbg-saline: var(--saline-300); --icon-tonalbg-xray: var(--xray-300); --icon-tonalbg-pepto: var(--pepto-300); --icon-tonalbg-neutral: var(--neutral-100);
+    --icon-glass-tonalbg-primary: var(--purple-300); --icon-glass-tonalbg-green: var(--green-300); --icon-glass-tonalbg-saline: var(--saline-300); --icon-glass-tonalbg-xray: var(--xray-300); --icon-glass-tonalbg-pepto: var(--pepto-300); --icon-glass-tonalbg-error: var(--red-50); --icon-glass-tonalbg-neutral: var(--neutral-100);
+    --icon-tonal-primary: var(--purple-600); --icon-tonal-green: var(--green-900); --icon-tonal-saline: var(--saline-900); --icon-tonal-xray: var(--xray-900); --icon-tonal-pepto: var(--pepto-900); --icon-tonal-error: var(--red-800); --icon-tonal-neutral: var(--purple-600);
+  }
+  .legacy-banner { background: var(--yellow-50); color: var(--yellow-950); font: 500 14px/1.4 var(--font-family-body); padding: 10px 16px; text-align: center; border-bottom: 1px solid var(--yellow-200); }
+</style>
+
 
 <!-- Phosphor icon SVGs used on this page (lifted for offline bundling) -->
 
@@ -20,35 +34,36 @@
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; }
-  body { font-family: var(--font-sans); color: var(--ink); background: #fff; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--font-family-body); color: var(--text-color-primary); background: #fff; -webkit-font-smoothing: antialiased; }
   .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 40px 80px; }
   .hero { display: flex; align-items: center; gap: 20px; margin-bottom: 8px; }
   .hero img { height: 42px; width: auto; }
-  .tagline { font-family: var(--font-display); font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: -0.015em; color: var(--ink); margin: 18px 0 6px; }
-  .sub { font-size: 18px; color: var(--neutral-600); max-width: 620px; }
+  .tagline { font-family: var(--font-family-heading); font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: -0.015em; color: var(--text-color-primary); margin: 18px 0 6px; }
+  .sub { font-size: 18px; color: var(--neutral-700); max-width: 620px; }
   .section { margin-top: 52px; }
-  .eyebrow { font: 600 12px/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--lavender-600); margin: 0 0 18px; }
-  .ramp { display: flex; border-radius: 12px; overflow: hidden; box-shadow: var(--elevation-small); }
+  .eyebrow { font: 600 12px/1 var(--font-family-body); letter-spacing: .08em; text-transform: uppercase; color: var(--purple-600); margin: 0 0 18px; }
+  .ramp { display: flex; border-radius: 12px; overflow: hidden; box-shadow: var(--effect-elevation-tiny); }
   .step { flex: 1; height: 66px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 6px; }
   .step span { font: 600 10px/1 ui-monospace, monospace; }
   .ramps { display: flex; flex-direction: column; gap: 14px; }
-  .ramplabel { font: 600 13px var(--font-sans); color: var(--ink); margin-bottom: 6px; }
-  .typerow { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--neutral-100); }
-  .typerow .spec { margin-left: auto; font: 400 12px ui-monospace, monospace; color: var(--neutral-500); }
+  .ramplabel { font: 600 13px var(--font-family-body); color: var(--text-color-primary); margin-bottom: 6px; }
+  .typerow { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--neutral-200); }
+  .typerow .spec { margin-left: auto; font: 400 12px ui-monospace, monospace; color: var(--neutral-600); }
   .row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
-  .h { font: 600 12px/1 var(--font-sans); letter-spacing: .07em; text-transform: uppercase; color: var(--neutral-500); margin: 0 0 14px; }
+  .h { font: 600 12px/1 var(--font-family-body); letter-spacing: .07em; text-transform: uppercase; color: var(--neutral-600); margin: 0 0 14px; }
   .sec { margin-bottom: 26px; }
-  .navy { background: var(--lavender-600); border-radius: 16px; padding: 20px; }
+  .navy { background: var(--purple-600); border-radius: 16px; padding: 20px; }
   .col { display: flex; flex-direction: column; }
-  .cap { font: 500 11px var(--font-sans); color: var(--neutral-500); margin-top: 6px; text-align: center; }
-  .iconbox { border: 1.5px dashed var(--lavender-400); border-radius: 16px; padding: 18px 20px; display: inline-flex; flex-direction: column; gap: 14px; }
+  .cap { font: 500 11px var(--font-family-body); color: var(--neutral-600); margin-top: 6px; text-align: center; }
+  .iconbox { border: 1.5px dashed var(--purple-400); border-radius: 16px; padding: 18px 20px; display: inline-flex; flex-direction: column; gap: 14px; }
   .logos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-  .tile { border-radius: 14px; padding: 26px 22px; display: flex; align-items: center; justify-content: center; min-height: 92px; border: 1px solid var(--neutral-100); }
-  .tile.dark { background: var(--lavender-600); border-color: transparent; }
+  .tile { border-radius: 14px; padding: 26px 22px; display: flex; align-items: center; justify-content: center; min-height: 92px; border: 1px solid var(--neutral-200); }
+  .tile.dark { background: var(--purple-600); border-color: transparent; }
   .tile img { height: 28px; width: auto; }
 </style>
 </head>
 <body>
+<div class="legacy-banner">Legacy overview from before the Figma alignment (Oct 21, 2026). Current tokens and rules: the guideline cards and readme.md.</div>
 <div class="wrap">
   <div class="hero">
     <img src="../assets/logo-freed-purple.png" alt="Freed logo">
@@ -150,7 +165,7 @@ function Icon({name='heart',treatment='flat-white',shape='tile',color='primary',
   const radius=shape==='circle'?'50%':Math.round(size*0.3)+'px';
   const glyph=Math.round(size*0.56);
   const container={width:size,height:size,borderRadius:radius,background:r.bg,color:r.fg,display:'inline-flex',alignItems:'center',justifyContent:'center',flexShrink:0,boxSizing:'border-box',
-    ...(color==='neutral'&&treatment==='flat-tonal'?{border:'1px solid var(--neutral-200)'}:null),
+    ...(color==='neutral'&&treatment==='flat-tonal'?{border:'1px solid var(--neutral-300)'}:null),
     ...(r.glass?{backdropFilter:'blur(8px)',WebkitBackdropFilter:'blur(8px)',border:'1px solid rgba(255,255,255,0.45)',boxShadow:'inset 0 1px 1.5px rgba(255,255,255,.55)'}:null)};
   return <span role="img" aria-label={name} style={container}>{svg?<span style={{width:glyph,height:glyph,display:'block',color:'inherit'}} dangerouslySetInnerHTML={{__html:sizeSvg(svg,glyph)}}/>:<span style={{width:glyph,height:glyph,opacity:0}}/>}</span>;
 }
@@ -172,18 +187,18 @@ ReactDOM.createRoot(document.getElementById('icons')).render(<Icons/>);
 // ---------- Cards ----------
 const GLASS={primary:'192,168,255',neutral:'255,255,255',green:'98,231,116',saline:'155,181,254',xray:'82,226,218',pepto:'251,140,195',error:'248,61,36'};
 const GLASS_ALPHA={neutral:0.6};
-const ELEV={small:'var(--elevation-small)',medium:'var(--elevation-medium)',large:'var(--elevation-large)'};
+const ELEV={small:'var(--effect-elevation-tiny)',medium:'var(--effect-elevation-small)',large:'var(--effect-elevation-primary)'};
 function Card({effect='glass',color='primary',elevation='none',glow,inverted=false,title,body,radius,style}){
   const pad='22px 24px';
-  const fg=inverted?'#fff':'var(--ink)';
-  const fgBody=inverted?'rgba(255,255,255,0.82)':(effect==='glass'?'var(--neutral-700)':'var(--neutral-600)');
-  const content=<React.Fragment>{title&&<div className="text-size-regular-bold" style={{color:fg,marginBottom:6}}>{title}</div>}{body&&<div className="text-size-small" style={{color:fgBody}}>{body}</div>}</React.Fragment>;
+  const fg=inverted?'#fff':'var(--text-color-primary)';
+  const fgBody=inverted?'rgba(255,255,255,0.82)':(effect==='glass'?'var(--neutral-800)':'var(--neutral-700)');
+  const content=<React.Fragment>{title&&<div className="body-primary-bold" style={{color:fg,marginBottom:6}}>{title}</div>}{body&&<div className="body-small" style={{color:fgBody}}>{body}</div>}</React.Fragment>;
   if(effect==='glow'){const g=glow&&glow.length>=2?glow:['#f06ba8','#9166ff','#6a3cdf','#5ad6cf'];const r=radius!=null?radius:18;
     return <div style={{position:'relative',borderRadius:r,display:'inline-block',...style}}>
       <div aria-hidden style={{position:'absolute',inset:-6,borderRadius:r+8,background:'linear-gradient(135deg, '+g.join(', ')+')',filter:'blur(18px)',opacity:0.55,zIndex:-1}}/>
       <div style={{borderRadius:r,padding:'1.5px',background:'linear-gradient(160deg, '+g[g.length-1]+', '+g[1]+')'}}><div style={{background:'#fff',borderRadius:r-1.5,padding:pad}}>{content}</div></div></div>;}
-  if(effect==='bubble'){const r=radius!=null?radius:18;const base=elevation!=='none'?ELEV[elevation]:'var(--elevation-medium)';
-    return <div style={{background:'linear-gradient(180deg, #ffffff 0%, #fcfcfd 58%, #f4f4f8 100%)',borderRadius:r,border:'1px solid var(--neutral-150)',boxShadow:base+', inset 0 1.5px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(18,18,28,0.07), inset 0 -18px 28px -20px rgba(18,18,28,0.16)',padding:pad,...style}}>{content}</div>;}
+  if(effect==='bubble'){const r=radius!=null?radius:18;const base=elevation!=='none'?ELEV[elevation]:'var(--effect-elevation-small)';
+    return <div style={{background:'linear-gradient(180deg, #ffffff 0%, #fcfcfd 58%, #f4f4f8 100%)',borderRadius:r,border:'1px solid var(--neutral-200)',boxShadow:base+', inset 0 1.5px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(18,18,28,0.07), inset 0 -18px 28px -20px rgba(18,18,28,0.16)',padding:pad,...style}}>{content}</div>;}
   const rgb=GLASS[color]||GLASS.primary;const a=GLASS_ALPHA[color]!=null?GLASS_ALPHA[color]:0.7;const r=radius!=null?radius:16;
   const lift=elevation!=='none'?ELEV[elevation]:'0 1px 2px rgba(16,18,28,0.05)';
   return <div style={{background:'rgba('+rgb+','+a+')',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',border:'1px solid rgba(255,255,255,0.38)',borderRadius:r,boxShadow:lift+', inset 0 1px 0 rgba(255,255,255,0.45)',padding:pad,...style}}>{content}</div>;

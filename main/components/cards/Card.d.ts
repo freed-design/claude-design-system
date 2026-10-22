@@ -1,28 +1,26 @@
 /**
- * A Freed surface: frosted glass, bubble, or glow-bordered card.
+ * A Freed surface — glass, bubble, glow or petri dish — matching the Figma card styles.
  */
 export interface CardProps {
   /** Surface treatment. `glass` is the default Freed card. */
   effect?: 'glass' | 'bubble' | 'glow' | 'petri';
-  /** Tint family. Glass uses it as a translucent wash; petri as its `-100` fill.
-   *  Ignored by bubble/glow. Any of the seven works;
-   *  `neutral` is the white/clear glass (white at 60%, vs 70% for the tints). */
-  color?: 'primary' | 'neutral' | 'green' | 'saline' | 'xray' | 'pepto' | 'error';
-  /** Drop-shadow step. One layer only — never stack elevation. */
-  elevation?: 'none' | 'small' | 'medium' | 'large';
-  /** Glow gradient stops (>=2 hex values); only used when effect="glow". */
-  glow?: string[];
-  /** Use white text — for glass cards sitting on a dark panel. */
+  /** Glass tint (Figma "Glass Cards/bg/*") or glow variant (Figma "glow-card/*").
+   *  Glass: `primary` is the clear neutral glass, `secondary` is purple; plus alternate-01 (saline),
+   *  alternate-02 (x-ray), alternate-03 (pepto), success and error.
+   *  Glow: primary, secondary, alternate-01, alternate-02, alternate-03. Ignored by bubble and petri. */
+  color?: 'primary' | 'secondary' | 'alternate-01' | 'alternate-02' | 'alternate-03' | 'success' | 'error';
+  /** Glass and bubble elevation (Figma "glass-card/elevation-*", "bubble-card/elevation-*"). One layer only — never stack elevation. */
+  elevation?: 'none' | 'small' | 'primary';
+  /** White text — for a card on a dark ground. In the dark theme text already switches. */
   inverted?: boolean;
-  /** Bold title line. */
+  /** Title line (body/medium-bold). */
   title?: string;
-  /** Supporting body line. */
+  /** Supporting line (body/primary). */
   body?: string;
-  /** Corner radius override in px (defaults: glass/petri 16, bubble/glow 18). A numeric string is coerced; any other CSS length passes through. */
+  /** Corner radius override (defaults: glass/petri border-radius-primary 16px, bubble/glow border-radius-large 32px). */
   radius?: number | string;
   style?: React.CSSProperties;
-  /** Content of a `petri` dish — product imagery only, never text.
-   *  Ignored by the other effects, which use `title` / `body`. */
+  /** Content of a `petri` dish — product imagery only, never text. */
   children?: React.ReactNode;
 }
 export function Card(props: CardProps): JSX.Element;

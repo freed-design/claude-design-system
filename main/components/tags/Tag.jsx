@@ -1,34 +1,16 @@
 import React from 'react';
 
-/* Tag — a pill with a glyph and a label. Geometry transcribed from the supplied
-   tag.svg: 36px tall, fully rounded (18px radius), 14px side padding, 8px gap,
-   15px glyph, 14px Inter label. The glyph may lead, trail, or be omitted. */
-
-/* Any brand hue works. Two accessible families:
-   • subtle — pale fill, dark same-family text (the default; works for every hue)
-   • strong — dark fill, white text
-   The label is 14px, so it needs the full 4.5:1 AA ratio: a mid step like
-   saline-400 with white text only reaches ~2:1 and is not offered. Pass `bg`/`fg`
-   to override, but check the pairing first. */
+/* Tag — a pill with a label and optional leading/trailing glyphs, aligned with the Figma "icon/tag"
+   component (2026-10-21): 36px tall, fully rounded, 8px × 12px padding, 4px gap, 20px glyphs, and a
+   body/xsmall (14px Inter) label. Colours come from the Theme tokens Tags/bg/* and Tags/text/*.
+   Note: Figma's secondary (white on saline-500, 2.30:1) and alternate-01 (white on pepto-400, 2.33:1)
+   fail WCAG AA for a 14px label. They are kept exactly as Figma defines them until fixed in Figma. */
 const TONES = {
-  purple:   { bg: 'var(--lavender-50)',  fg: 'var(--lavender-700)' },
-  saline:   { bg: 'var(--saline-100)',   fg: 'var(--saline-800)' },
-  pepto:    { bg: 'var(--pepto-100)',    fg: 'var(--pepto-800)' },
-  xray:     { bg: 'var(--xray-100)',     fg: 'var(--xray-900)' },
-  green:    { bg: 'var(--green-100)',    fg: 'var(--green-800)' },
-  yellow:   { bg: 'var(--yellow-100)',   fg: 'var(--yellow-900)' },
-  red:      { bg: 'var(--red-50)',       fg: 'var(--red-700)' },
-  coral:    { bg: '#ffe7de',             fg: '#8f2c00' },
-  neutral:  { bg: 'var(--neutral-50)',   fg: 'var(--neutral-700)' },
-
-  'purple-strong': { bg: 'var(--lavender-600)', fg: '#fff' },
-  'saline-strong': { bg: 'var(--saline-700)',   fg: '#fff' },
-  'pepto-strong':  { bg: 'var(--pepto-800)',    fg: '#fff' },
-  'xray-strong':   { bg: 'var(--xray-800)',     fg: '#fff' },
-  'green-strong':  { bg: 'var(--green-800)',    fg: '#fff' },
-  'red-strong':    { bg: 'var(--red-700)',      fg: '#fff' },
-  'ink-strong':    { bg: 'var(--ink)',          fg: '#fff' },
+  primary:        { bg: 'var(--tags-bg-primary)',      fg: 'var(--tags-text-primary)' },
+  secondary:      { bg: 'var(--tags-bg-secondary)',    fg: 'var(--tags-text-secondary)' },
+  'alternate-01': { bg: 'var(--tags-bg-alternate-01)', fg: 'var(--tags-text-secondary)' },
 };
+const LEGACY = { purple: 'primary', 'purple-strong': 'primary', saline: 'secondary', 'saline-strong': 'secondary', pepto: 'alternate-01', 'pepto-strong': 'alternate-01' };
 
 const __svgCache = new Map();
 function fetchGlyph(name) {
@@ -40,37 +22,41 @@ function fetchGlyph(name) {
   return p;
 }
 
-export function Tag({ label = 'Tag', icon = null, iconPosition = 'leading', color = 'purple', bg, fg, style }) {
-  const t = TONES[color] || TONES.purple;
-  if (!TONES[color]) {
-    console.warn('Tag: unknown color "' + color + '". Available: ' + Object.keys(TONES).join(', ') + ' — or pass bg/fg directly.');
-  }
+function Glyph({ name }) {
   const [svg, setSvg] = React.useState(null);
   React.useEffect(() => {
     let live = true;
-    if (icon) fetchGlyph(icon).then(s => { if (live) setSvg(s || ''); });
+    if (name) fetchGlyph(name).then(s => { if (live) setSvg(s || ''); });
     return () => { live = false; };
-  }, [icon]);
-
-  const glyph = icon ? (
+  }, [name]);
+  return (
     <span
       aria-hidden="true"
-      style={{ width: 15, height: 15, display: 'block', flexShrink: 0, color: 'inherit' }}
-      dangerouslySetInnerHTML={{ __html: (svg || '').replace(/<svg /, '<svg width="15" height="15" ').replace(/fill="#[0-9a-fA-F]+"/g, 'fill="currentColor"') }}
+      style={{ width: 20, height: 20, display: 'block', flexShrink: 0, color: 'inherit' }}
+      dangerouslySetInnerHTML={{ __html: (svg || '').replace(/<svg /, '<svg width="20" height="20" style="display:block" ').replace(/fill="#[0-9a-fA-F]+"/g, 'fill="currentColor"') }}
     />
-  ) : null;
+  );
+}
 
+export function Tag({ label = 'Tag', icon = null, iconPosition = 'leading', trailingIcon = null, color = 'primary', bg, fg, style }) {
+  let c = color;
+  if (!TONES[c]) {
+    if (LEGACY[c]) { console.warn('Tag: color "' + c + '" was renamed to "' + LEGACY[c] + '" to match Figma.'); c = LEGACY[c]; }
+    else { console.warn('Tag: unknown color "' + c + '". Available: ' + Object.keys(TONES).join(', ') + ' — or pass bg/fg directly.'); c = 'primary'; }
+  }
+  const t = TONES[c];
+  const lead = icon && iconPosition !== 'trailing' ? icon : null;
+  const trail = trailingIcon || (icon && iconPosition === 'trailing' ? icon : null);
   return (
-    <span style={{
-      display: 'inline-flex', alignItems: 'center', gap: icon ? 8 : 0,
-      height: 36, padding: '0 14px', borderRadius: 18,
+    <span className="body-xsmall" style={{
+      display: 'inline-flex', alignItems: 'center', gap: 'var(--spacing-xxxsmall)',
+      height: 36, padding: 'var(--spacing-xxsmall) var(--spacing-xsmaller)', borderRadius: 'var(--border-radius-full)',
       background: bg || t.bg, color: fg || t.fg,
-      fontFamily: 'var(--font-sans)', fontSize: 14, fontWeight: 400, lineHeight: 1,
       whiteSpace: 'nowrap', boxSizing: 'border-box', ...style,
     }}>
-      {iconPosition === 'leading' ? glyph : null}
+      {lead ? <Glyph name={lead} /> : null}
       {label}
-      {iconPosition === 'trailing' ? glyph : null}
+      {trail ? <Glyph name={trail} /> : null}
     </span>
   );
 }

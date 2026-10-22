@@ -1,14 +1,15 @@
-`Tag` is the pill: a rounded container holding a label, optionally with a glyph. Use it for short metadata — specialty, visit type, status, category, filter — anywhere a word needs to read as an object rather than as running text.
+`Tag` is the pill: a rounded container holding a label, optionally with glyphs. It matches the Figma `icon/tag` component. Use it for short metadata — specialty, visit type, status, category, filter — anywhere a word needs to read as an object rather than running text.
 
 ```jsx
 <Tag label="Telehealth" icon="chat-circle" />
-<Tag label="3 codes" icon="caret-right" iconPosition="trailing" color="saline" />
-<Tag label="Recording" icon="microphone" color="pepto-strong" />
+<Tag label="Follow-up" icon="calendar-blank" color="secondary" />
+<Tag label="Recording" icon="microphone" trailingIcon="pulse" />
 <Tag label="Draft" />
 ```
 
-- Geometry is fixed by the source SVG: 36px tall, 18px radius (fully rounded), 14px side padding, 8px gap, 15px glyph, 14px Inter label. Don't resize it.
-- The glyph is **optional** and can **lead or trail** — leading for a category or type, trailing for something actionable or directional, none when the label speaks for itself.
-- **Any brand hue works**, in one of two families: the plain name is subtle (pale fill, dark same-family text), and `-strong` is a dark fill with white text. `purple` is the default.
-- The label is 14px, which is body-size text, so it needs the full **4.5:1** ratio. That rules out white text on a mid step — white on `saline-400` is about 2:1. The `-strong` variants use the 600–800 steps for that reason. `bg`/`fg` are available as an escape hatch, but check the pairing yourself.
+- Geometry from Figma: 36px tall, `border-radius-full`, `spacing-xxsmall` × `spacing-xsmaller` padding (8 × 12px), `spacing-xxxsmall` (4px) gap, 20px glyphs, `body-xsmall` (14px Inter) label. Don't resize it.
+- Three colours (Figma `Tags/bg/*` and `Tags/text/*`): `primary` — purple-100 fill with purple-600 text (5.38:1, passes); `secondary` — saline-500 with white text; `alternate-01` — pepto-400 with white text.
+- **Accessibility flag:** `secondary` (2.30:1) and `alternate-01` (2.33:1) fail WCAG AA for a 14px label. They are kept exactly as Figma defines them until the pairs are fixed in Figma; prefer `primary` for anything a reader must rely on.
+- Glyphs are optional: leading for a category or type, trailing for something actionable or directional (`iconPosition="trailing"` or `trailingIcon`), none when the label speaks for itself.
 - Keep labels to one or two words in sentence case.
+- Old colour names still work with a console warning: `purple` → `primary`, `saline` → `secondary`, `pepto` → `alternate-01`. The other hues and the `-strong` set are gone, as Figma defines only these three.

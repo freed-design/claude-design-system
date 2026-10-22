@@ -1,16 +1,18 @@
 /**
- * Phosphor glyph inside an on-brand Freed container (tile or circle).
+ * Phosphor glyph inside an on-brand Freed container — the Figma "icon/container" component.
  */
 export interface IconProps {
   /** Phosphor (regular) glyph name, e.g. "stethoscope", "microphone", "pulse". */
   name?: string;
-  /** Container treatment. */
-  treatment?: 'flat-white' | 'flat-tonal' | 'glass-white' | 'glass-tonal';
-  /** Container shape: rounded tile (30% radius) or circle. */
+  /** Container colour (Figma "Icon/bg/*"). `secondary` is a white container with a purple glyph; all others carry a white glyph. */
+  color?: 'primary' | 'secondary' | 'alternate-01' | 'alternate-02' | 'alternate-03' | 'success' | 'error';
+  /** `flat` solid fill, or `glass` (Glass Cards tint, 4px backdrop blur, icon/glass effect). Glass needs a backdrop. */
+  effect?: 'flat' | 'glass';
+  /** Tile (border-radius-small; xsmall at the small size) or circle. */
   shape?: 'tile' | 'circle';
-  /** Color family. */
-  color?: 'primary' | 'green' | 'saline' | 'xray' | 'pepto' | 'error' | 'neutral';
-  /** Container edge length in px; the glyph is 56% of it. A numeric string ("48") is coerced. */
-  size?: number | string;
+  /** `primary` = 50px container / 26px glyph; `small` = 20px / 12px; or a number of px. */
+  size?: 'primary' | 'small' | number | string;
+  /** @deprecated Use `effect`. Mapped: flat-* → flat, glass-* → glass. */
+  treatment?: string;
 }
 export function Icon(props: IconProps): JSX.Element;

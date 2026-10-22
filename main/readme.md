@@ -11,16 +11,16 @@ The audience is clinicians and small-practice staff — not enterprise health sy
 
 ## Sources
 
-This system was **imported from a finished Freed design system** the user had already
-authored elsewhere: `uploads/Freed Design System.html` — a self-contained bundle of the
-"Freed — Design System Overview" page. Everything here (token values, type utilities, logo
-PNGs, Phosphor glyph copies, Nunito/Inter webfont subsets, and the `Icon` / `Card`
-components) was unpacked from that file, not re-invented. The page itself is restored at
-`guidelines/overview.html` (same markup and demos, with the stylesheet and assets pointing
-at this project's files).
+**Token source of truth (since 2026-10-21): the Figma file "01_Semantic - General"**, kept at
+`figma-references/semantic-general-10-21-26.fig`. Every file in `tokens/` except `motion.css`,
+`fonts.css` and `aurora-palette.css` is generated from its variable collections (Base, Theme,
+Typography, Layout), its text styles and its effect styles, and uses Figma's own names. To change
+a colour, size or shadow, change it in Figma and run `scripts/figma-sync/sync.sh` — don't hand-edit the token files.
 
-No Figma file, repository, or product codebase was attached. Public brand copy quoted in
-the Content Fundamentals section below comes from getfreed.ai (July 2026).
+The rest of the system was first **imported from a finished Freed design system** the user had
+already authored elsewhere: `uploads/Freed Design System.html`. Its page is kept at
+`guidelines/overview.html`, now marked as a legacy page. Public brand copy quoted in the Content
+Fundamentals section below comes from getfreed.ai (July 2026).
 
 ## Content fundamentals
 
@@ -63,14 +63,18 @@ it ships — not assumed.**
   not contrast. Focus rings and interactive borders still need **3:1**.
 - Check the *rendered* pairing, not the token name. Glass surfaces are semi-transparent, so
   test text against the composite result over its real backdrop, not against the tint.
-- Known traps in this palette: white text fails on `lavender-300/400/500`, on every
-  `-50`…`-400` step of Saline, Pepto, Focus Green, X-ray, and on Yellow at any step. White
-  text is safe from `lavender-600` down (that is why `--lavender-600` is the standard white-text
-  backdrop). **`--neutral-600` `#737373` (4.66:1 on white) is the lightest permissible body
-  grey.** `--fg-muted` resolves to `neutral-500` `#999` = **2.85:1 on white — it fails AA for
-  body text**; use it only for large text on white, or on a tinted surface where it passes.
-  `neutral-400` and lighter are decorative only.
-- Yellow (`--yellow-500 #f6e600`) never carries white text; pair it with `--ink`.
+- Known traps in this palette:
+  - White text fails on `purple-300`, `-400` and `-500` (`purple-500` is 3.77:1), on every step from 50 to 400 of
+    Saline, Pepto, Focus Green and X-ray, and on Yellow at any step. White text is safe from `purple-600` down
+    (6.32:1) — that is why `purple-600` (`purple-0`) is the standard white-text backdrop.
+  - `text-color-secondary` / `text-color-footnote` (`neutral-700` `#6E6E6E`, 5.10:1 on white) is the lightest grey
+    allowed for text. `neutral-600` (`#999`, 2.85:1) and lighter are decorative only.
+  - **Two Figma tag pairs fail AA and are flagged, not re-tinted:** `tags-text-secondary` (white) on
+    `tags-bg-secondary` (`saline-500`, 2.30:1) and on `tags-bg-alternate-01` (`pepto-400`, 2.33:1). Fix them in Figma;
+    until then prefer the `primary` tag for anything a reader must rely on.
+  - In the dark theme, text tokens switch (for example `text-color-primary` becomes white on `purple-950`); check the
+    rendered pair in both themes.
+- `yellow-400` (`#F6E600`) never carries white text; pair it with `text-color-primary`.
 - Never signal state by color alone; pair it with an icon, label, or shape.
 - Body copy is never below 14px, and hit targets are never below 44px.
 
@@ -79,64 +83,80 @@ down the ramp until it passes.
 
 ## Visual foundations
 
-**Color.** One hero color: **Freed purple / lavender-600 `#6A3CDF`**, backed by a full
-11‑step lavender ramp. Support ramps — Saline (blue), Pepto (pink), Focus Green, X‑ray
-(teal) — are used *strategically*, mostly as icon families and small accents, never as
-large competing fields. Yellow and Red are 5‑step semantic-only ramps (caution, error).
-Neutrals are true greys (`#f7f7f7` → `#000`); `--ink #212121` is the workhorse text color.
-`--lavender-600` is the standard backdrop for white text, the white logo, and inverted
-glass cards; `--lavender-950 #15004b` is the deepest panel color, for when you truly want it. Legacy `--navy` now resolves to
-`--ink`: **headings are black by default**, with `.heading-purple` / `.heading-white` as the
-only other two options. FreedNavy is retired. There are no bluish-purple hero gradients;
-where gradients appear they are soft, multi-hue aurora washes behind glass.
+**Color.** One hero color: **Freed purple, `purple-600` `#6A3CDF`** (the starred base step, also
+`purple-0`), backed by an 11-step `purple-*` ramp. Every ramp marks its base step with `*` in Figma:
+purple 600, saline 500, pepto 400, green 500, x-ray 400, neutral 900, yellow 400, red 400, orange 400.
+- **Three layers, use the highest that fits:** primitive ramps (`purple-50` … `purple-950`), **Base**
+  relative steps (`purple-l6` … `purple-0` … `purple-d4`, where `-0` is the base step, `-l` lighter and `-d`
+  darker) with opacity variants (`purple-0-50` = base purple at 50%), and **Theme** semantic tokens
+  (`background-*`, `text-color-*`, `border-color-*`, `buttons-*`, `icon-*`, `tags-*`, `glass-cards-*`,
+  `bubble-cards-*`, `glow-cards-*`, `petri-cards-*`, `link-color-*`, `logo-color-*`, `elevation-*`).
+  **Reach for Theme tokens first** — they are the only layer that switches with dark mode.
+- Support ramps — Saline, Pepto, Focus Green, X-ray — are used *strategically*, mostly as icon, tag and
+  card accents, never as large competing fields. Yellow (caution), Red (error) and Orange (warning) are
+  5-step ramps used only for meaning.
+- Neutrals are true greys from `neutral-50` (white) to `neutral-950` (black). `neutral-900` `#212121` is
+  `text-color-primary`; `neutral-700` `#6E6E6E` is `text-color-secondary`.
+- Backgrounds: `background-primary` (white), `background-secondary` (`#FAFAFA`), `background-alternate-01`
+  (`purple-50`) and `background-alternate-02` (`purple-300`).
+- Borders are saline-tinted, not grey: `border-color-primary` (`saline-900` at 10%) and
+  `border-color-secondary` (30%); `border-color-focus` is `purple-600`.
+- **Dark mode** is Figma's second Theme mode: set `data-theme="dark"` on a container (or `<html>`).
+  Grounds become deep purple (`background-primary` = `purple-950`), text becomes white.
+- **Headings are black (`text-color-primary`) by default**, with `.heading-purple` (`text-color-focus`)
+  and `.heading-white` as the only other two options.
+- The `aurora-palette.css` colours (`aqua-*`, `coral-*`, `moss-*`, `bone-*`, `lavender-*` …) are for aurora
+  art direction only — never for UI fills or text. There are no bluish-purple hero gradients; where
+  gradients appear they are soft, multi-hue aurora washes behind glass.
 
-**Type.** Two families. Display/headings use **KitRounded**, a proprietary rounded
-geometric face — **substituted here with Nunito** (see Caveats). Body and all product UI
-use **Inter** (exact). Mono is the system stack. Marketing headings run big and tight
-(96 / 55 / 46 / 36px, weight 400, letter-spacing −0.02em → −0.005em); h4–h6 step up to
-weight 500. Body sizes are 22 / 20 / 18 / 16 / 14 at line-height 1.4, with `-bold` (600),
-`-underline`, and `-uppercase` (+0.04em) modifiers. The eyebrow is 12–13px, 600,
-uppercase, +0.08em, in lavender-600. Note the **logo wordmark is a serif** — it is an
-asset, never set in type.
+**Type.** Two families: headings use **KitRounded** (`font-family-heading`), a proprietary rounded
+geometric face — **rendered with Nunito until the KitRounded webfont files are added** (see Caveats).
+Body, product UI and buttons use **Inter** (`font-family-body`, `-product`, `-button`). Use the Figma text
+styles, which ship as classes named after them:
+- **Headlines** — `.headlines-h1-large` 96px Light 300, `.headlines-h1` 55, `.headlines-h2` 46, `.headlines-h3`
+  36 (all Regular), `.headlines-h4` 24 Medium, `.headlines-h6` 18 Medium — all KitRounded with **no letter-spacing**,
+  line-height 1.2–1.4. `.headlines-h5` (20 Medium) is **Inter**.
+- **Body** (Inter, line-height 1.4) — `.body-x-large` 24, `.body-large` 22, `.body-medium` 20, `.body-primary` 18,
+  `.body-small` 16, `.body-xsmall` 14, `.body-tiny` 12, with `-bold` (700), `-medium`, `-underline` and
+  `-uppercase` (+10% tracking) variants where Figma defines them.
+- **Body copy never goes below 14px (`body-xsmall`).** `body-tiny` (12px) is only for captions, legal
+  footnotes and labels — never running text.
+- **Eyebrows** — `.eyebrows-primary` 18, `.eyebrows-small` 16, `.eyebrows-tiny` 14: Inter Medium, uppercase,
+  4px tracking.
+- **Buttons** — `.buttons-large` / `.buttons-primary` 20, `.buttons-small` 18, `.buttons-xsmall` 14: Inter
+  SemiBold, line-height 1.
+- `text-wrap: pretty` on paragraphs. The **logo wordmark is a serif** — it is an asset, never set in type.
 
-**Spacing & layout.** 4pt base scale, `--space-1` (4px) → `--space-24` (96px). Content is
-centered in a ~1100px measure with generous 48–80px vertical section rhythm; body copy is
-capped around 620px. `text-wrap: pretty` on paragraphs.
+**Spacing & layout.** Use the Figma Layout tokens: `spacing-none` 0, `spacing-tiny` 2, `spacing-xxxsmall` 4,
+`spacing-xxsmall` 8, `spacing-xsmaller` 12, `spacing-smaller` 16, `spacing-small` 20, `spacing-medium` 32,
+`spacing-large` 48, `spacing-xlarge` 64, `spacing-xxlarge` 80, `spacing-huge` 96, `spacing-xhuge` 128,
+`spacing-xxhuge` 192. Card padding is `card-padding-small` 16 / `-primary` 32 / `-large` 48 / `-xlarge` 64;
+button padding is `button-padding-*`. Content widths are `container-tiny` 484, `-xsmall` 742, `-small` 1000,
+`-medium` 1248, `-primary` 1520 and `-large` 1620. Body copy stays around 620px wide.
 
-**Corners.** `--radius-xs 6` · `sm 8` · `md 14` · `lg 20` · `xl 30` (cards and large
-surfaces) · `pill 999`. Icon tiles use a 30%-of-size radius, so they scale with the glyph.
+**Corners.** `border-radius-xsmall` 4 · `small` 8 · `primary` 16 (glass cards, petri dish) · `large` 32
+(bubble and glow cards) · `full` 999 (pills, circles). Strokes use `border-width-xsmall` 0.5 … `xlarge` 3.
 
-**Cards.** Three treatments, in order of how often they should appear:
-1. **Glass** (default) — `rgba(family, .7)` fill, `blur(16px)`, 1px `rgba(255,255,255,.38)`
-   border, 16px radius, elevation plus an `inset 0 1px 0 rgba(255,255,255,.45)` top
-   highlight. **Any of the seven tint families works** — Lavender (default), neutral,
-   Focus Green, Saline, X-ray, Pepto, or error red; `neutral` is the white/clear glass at
-   60% opacity, for when the backdrop should read through unchanged. It is transparent, so it
-   *requires* a backdrop: a photo, an aurora gradient, or a `--lavender-600` panel (then
-   `inverted` for white text).
-2. **Bubble** — the dimensional white card: a top-lit surface gradient
-   (`#fff` → `#f4f4f8`), a bright 1.5px inner top edge, a 1px inner bottom edge, and a soft
-   inner floor shade, over a `--neutral-150` hairline and 18px radius. Those four layers are
-   what give it rounded thickness — a flat white fill with one white inset reads as paper,
-   not a bubble. The safe card anywhere.
-3. **Glow** — white card with a 1.5px gradient border and an 18px-blurred gradient halo at
-   55% opacity (pink → lavender → purple → teal), painted on the negative layer so it always
-   sits *behind* adjacent content. One hero moment per screen, never in a grid.
-4. **Petri dish** — a shallow **recess in the surface**, not a raised tile: the family's
-   `-100` tint, a top-down darkening wash, a strong inner shade off the near (top/left) wall,
-   a lit far (bottom) wall with a crisp 1px white lip on the outer bottom edge, a fine
-   fractal-noise grain in `rgba(134,98,229,.3)`, and a 1px angular white rim sweep (conic,
-   peaking at 25.5%). **It exists to hold product imagery and never carries text.**
+**Cards.** Four treatments (`Card`), in order of how often they should appear:
+1. **Glass** (default) — a `glass-cards-bg-*` tint (60–70% alpha), a 4px backdrop blur and the
+   `effect-glass-card-elevation-*` shadow with its inner highlights. Seven tints: `primary` (clear neutral),
+   `secondary` (purple), `alternate-01/02/03` (saline, x-ray, pepto), `success`, `error`. It is translucent, so it
+   *requires* a backdrop: a photo, an aurora or a `purple-600` panel.
+2. **Bubble** — the dimensional white card, safe anywhere: `bubble-cards-bg-primary` with the
+   `effect-bubble-card-elevation-*` inner shading that gives it rounded thickness.
+3. **Glow** — white card with a 3px gradient border and a two-sided coloured halo, in five variants
+   (`effect-glow-card-*`). One hero moment per screen, never in a grid.
+4. **Petri dish** — a shallow **recess in the surface** (`petri-cards-*`), with an angular white rim and a
+   purple noise grain. **It exists to hold product imagery and never carries text.**
 
-**Shadows.** Two parallel systems: `--elevation-small/medium/large` (neutral
-`rgba(18,18,28,…)`, the one used by components) and `--shadow-xs…lg` (cooler
-`rgba(16,24,40,…)`). Rule: **a surface carries one layer, two maximum — never stack
-elevation** (no elevated icon inside an elevated card).
+**Shadows.** Use the Figma effect styles: `effect-elevation-tiny`, `-small` and `-primary` (black at 10%, from
+`elevation-primary`), plus the card effects above and `effect-icon-glass`. Rule: **a surface carries one
+layer, two maximum — never stack elevation** (no elevated icon inside an elevated card).
 
-**Transparency & blur.** Blur is the brand's signature effect and appears in exactly two
-places: glass cards (16px) and glass icon containers (8px). Both add a white hairline and
-an inset highlight so the edge catches light. Blur is never used for scrims or overlays on
-text; protection comes from a solid deep-purple panel instead of a gradient scrim.
+**Transparency & blur.** Blur is the brand's signature effect and appears on glass cards and glass icon
+containers only: Figma's Glass effect with a 4px frost (CSS `backdrop-filter: blur(4px)`; Figma's refraction
+and specular edge have no CSS equivalent). Blur is never used for scrims over text; protection comes from a
+solid deep-purple panel instead of a gradient scrim.
 
 **Imagery.** Product UI is shown as clean, cropped, floating screenshot chips (a note, a
 message, an alert) layered over aurora washes, not full browser frames. Photography is warm,
@@ -148,14 +168,13 @@ for the customer logo row, autoplaying muted hero video. No bounce, no spring, n
 parallax; ~150–250ms ease-out for UI state, longer and slower for ambient background
 motion. Prefer opacity/transform only.
 
-**States.** Hover lightens purple (`--primary` → `--primary-hover` = lavender‑500);
-press darkens (`--primary-press` = lavender‑700). Tinted/quiet controls hover to
-`--primary-tint` (lavender‑100). Nothing scales or shrinks on press; focus is a
-lavender ring. Disabled = reduced opacity on a neutral fill, never a new grey token.
+**States.** **Hover darkens** primary buttons: `buttons-bg-primary` (`purple-600`) → `buttons-bg-primary-hover`
+(`purple-800`); secondary buttons keep a transparent fill and fade their border to 50%
+(`buttons-bg-secondary-border-hover`). Nothing scales or shrinks on press. Focus is `border-color-focus`
+(`purple-600`). Disabled = reduced opacity, never a new grey token.
 
-**Borders.** 1px hairlines only: `--border` (neutral‑200) on light surfaces,
-`rgba(255,255,255,.38)` on glass, `--neutral-150` on bubbles. Dashed borders
-(1.5px, lavender‑400) appear only in documentation/specimen contexts.
+**Borders.** Hairlines in `border-color-primary` (saline-900 at 10%) or `border-color-secondary` (30%), at
+`border-width-primary` (1px). Dashed borders (1.5px, `purple-400`) appear only in documentation/specimen contexts.
 
 ## Auroras
 
@@ -221,7 +240,7 @@ cards. Never inside small components.
 **Text on an aurora** — on full-bleeds *and* floats — is for **large display text only**, and
 the colour follows the field underneath:
 
-- **`--ink` on light colorways**: `purple-soft`, `xray`, `xray-aqua`, `pepto-yellow`, `coral`,
+- **`text-color-primary` on light colorways**: `purple-soft`, `xray`, `xray-aqua`, `pepto-yellow`, `coral`,
   `purple-peach`, `moss-aqua`, and the pale areas of the `drift` and `ember` floats.
 - **`.heading-white` on dark, saturated ones**: `orb/purple`, `orb/saline`, `wave/purple`, and
   the dense purple of the `doubleboom` float.
@@ -241,7 +260,7 @@ Hand-drawn marks inspired by handwritten doctor's notes — a human touch that f
 personal. Four families, extracted verbatim from the brand file as inline SVG: `Underline`
 (6 types), `Arrow` (5), `Shape` (4), `Sparkle` (3), each taking `type="01"…`.
 
-- **Always Freed Focus green `#62E774`** (`--green-0`) — never any other color. The components
+- **Always Freed Focus green `#62E774`** (`text-annotations-primary`, i.e. `green-0`) — never any other color. The components
   enforce this: `style.color` overrides are ignored with a console warning.
 - **Solid, consistent stroke width with rounded endpoints.** Digital, not calligraphic — never
   tapered, dashed, or square-capped. Default weight 3px; pass `strokeWidth` to scale
@@ -262,15 +281,15 @@ personal. Four families, extracted verbatim from the brand file as inline SVG: `
   `microphone`, `pulse`, `first-aid-kit`, `gear`); the rest of the set is loaded from the
   Phosphor CDN (`cdn.jsdelivr.net/npm/@phosphor-icons/core@2.1.1/assets/regular/<name>.svg`)
   by the `Icon` component. Glyphs are recolored via `fill="currentColor"`.
-- Glyphs almost always sit **inside a container**, not bare: a tile (30% radius) or a
-  circle, in one of four treatments × seven color families. See `Icon`.
+- Glyphs almost always sit **inside a container**, not bare — the Figma `icon/container`: a tile or a
+  circle, flat or glass, in seven colours. See `Icon`.
 - **Icons are decorative graphics, not text — they are exempt from the AA contrast rule.**
-  Containers are deliberately light and consistent: white-glyph containers use each family's
-  **400** step (`lavender-400`, `green-400`, `saline-400`, `xray-400`, `pepto-400`, plus
-  `red-200` / `neutral-400` for the short ramps); tonal-glyph containers use the **300**
-  step. Glass treatments reuse the same steps and add blur. Text inside or beside an icon
-  still has to pass AA.
-- Glyph is 56% of the container edge; standard container sizes are 40–56px.
+  Containers use the Theme `icon-bg-*` tokens: `primary` `purple-600`, `secondary` white (purple glyph),
+  `alternate-01` `saline-500`, `alternate-02` `xray-400`, `alternate-03` `pepto-400`, `success` `green-600`,
+  `error` `red-400`, with a white glyph (`icon-icon-color-primary`) on all but `secondary`. Glass containers use
+  the Glass Cards tints. Text inside or beside an icon still has to pass AA.
+- Two sizes: `primary` — 50px container, 26px glyph, `border-radius-small`; `small` — 20px, 12px glyph,
+  `border-radius-xsmall`.
 - There is no icon font and no sprite sheet — individual SVGs only.
 - The logo mark (the wing/bird glyph) is part of the logo asset and is never used as an icon.
 
@@ -280,8 +299,9 @@ personal. Four families, extracted verbatim from the brand file as inline SVG: `
 lockup in the **only three approved colors**. White is for dark backgrounds — normally Freed purple 600.
 `assets/mark-freed-*.png` are the same three colors of the **mark alone**, cropped from those
 lockups (no redrawing) for favicons, avatars, and tight spaces.
-There is no SVG logo in the imported source; these transparent PNGs (2572×528) are the
-originals. No brand illustrations, marketing photography, or background images were
+Vector versions exported from the Figma `Logos/Freed` component are in `assets/logos/` (full,
+icon and **text — the wordmark alone**) together with the HIPAA, SOC 2, combined certification and
+"Loved by clinicians" badges; prefer them, or the `Logo` component, over the 2572×528 PNGs. No brand illustrations, marketing photography, or background images were
 included in the imported bundle.
 
 ## Index
@@ -289,37 +309,44 @@ included in the imported bundle.
 | Path | What it is |
 | --- | --- |
 | `styles.css` | Entry stylesheet — `@import`s only. Consumers link this one file. |
+| `figma-references/semantic-general-10-21-26.fig` | The Figma file the tokens are generated from — the source of truth. |
+| `scripts/figma-sync/` | Regenerates the token CSS and specimen cards from the Figma file (`sync.sh`) and rebuilds the bundle (`build-bundle.sh`). |
+| `tokens/colors.css` | Primitive ramps plus the Base relative steps and opacity variants (generated). |
+| `tokens/theme.css` | Theme semantic tokens: Default (light) on `:root`, Dark mode on `[data-theme="dark"]` (generated). |
+| `tokens/typography.css` | Font families, weights, size variables and the Figma text styles as classes (generated). |
+| `tokens/spacing.css` | Layout: border radius, border width, spacing, button and card padding, containers (generated). |
+| `tokens/effects.css` | Figma effect styles as `--effect-*` box-shadow values (generated). |
+| `tokens/aurora-palette.css` | Aurora art colours from `Library Auroras.fig`, updated for the new primitives. Not for UI. |
 | `tokens/fonts.css` | `@font-face` rules for the local Inter + Nunito woff2 subsets. |
-| `tokens/colors.css` | All ramps, icon-treatment vars, elevation, semantic colors. |
-| `tokens/typography.css` | Families, fluid marketing scale, `.heading-style-*` / `.text-size-*` utilities. |
-| `tokens/spacing.css` | Radii, `--shadow-*`, 4pt spacing scale. |
-| `fonts/` | 19 woff2 subsets (Inter normal + italic, Nunito normal). |
-| `assets/` | Logo lockups (3 colors) + 8 Phosphor glyph SVGs in `assets/icons/`. |
-| `components/icons/` | `Icon` (+ `.d.ts`, `.prompt.md`, specimen card). |
-| `components/cards/` | `Card` (+ `.d.ts`, `.prompt.md`, specimen card). |
-| `components/tags/` | `Tag` (+ `.d.ts`, `.prompt.md`, specimen card). |
-| `components/auroras/` | `AuroraFullBleed`, `AuroraFloat`, `Aurora` (+ `.d.ts`, `.prompt.md`, card). |
-| `tokens/fig/fig-tokens.css` | All 1037 Figma Variables from `Library Auroras.fig`. |
 | `tokens/motion.css` | The `aurora-drift` keyframes + reduced-motion guard. |
-| `assets/auroras/` | 14 full-bleed scene PNGs, 3 float PNGs, 10 single-shape PNGs. || `guidelines/*.card.html` | Foundation specimens shown in the Design System tab. |
-| `guidelines/overview.html` | The uploaded "Design System Overview" page itself, restored — logo tiles, ramps, type rows, the full icon matrix, and every card effect. |
+| `tokens/fig/fig-tokens.css` | Legacy: the 1037 variables of the older `Library Auroras.fig`. No longer imported. |
+| `fonts/` | 19 woff2 subsets (Inter normal + italic, Nunito normal). |
+| `assets/` | Logo lockups (3 colors, PNG), 8 Phosphor glyph SVGs, aurora PNGs, the tag reference SVG. |
+| `assets/logos/` | SVG logos and badges exported from Figma: Freed full/icon/text in purple, black and white; HIPAA, SOC 2, certification and Loved-by in black and white. |
+| `components/` | `Button`, `Card`, `Icon`, `Logo`, `Tag`, the aurora components and the annotations (+ `.d.ts`, `.prompt.md`, specimen cards). |
+| `_ds_bundle.js` | All components as one script assigning `window.FreedDesignSystem_e5ae95`. |
+| `guidelines/*.card.html` | Foundation specimens shown in the Design System tab, generated from the tokens. |
+| `guidelines/overview.html` | Legacy: the original "Design System Overview" page from before the Figma alignment. |
 | `SKILL.md` | Agent-skill entry point for use outside this project. |
 
 ### Components
 
-- **Icon** — `components/icons/Icon.jsx` — Phosphor glyph in an on-brand tile or circle;
-  four treatments (`flat-white`, `flat-tonal`, `glass-white`, `glass-tonal`) × seven color
-  families.
-- **Tag** — `components/tags/Tag.jsx` — pill label with a leading glyph; subtle purple
-  default plus solid colour fills. Geometry from the supplied `tag.svg`.
-- **Card** — `components/cards/Card.jsx` — Freed surface: `glass` (default), `bubble`, `glow`,
-  `petri`, with `elevation`, `inverted`, and glass tint families.
+- **Icon** — `components/icons/Icon.jsx` — Phosphor glyph in an on-brand tile or circle (Figma
+  `icon/container`): seven colours × flat/glass × two sizes.
+- **Tag** — `components/tags/Tag.jsx` — pill label with optional leading/trailing glyphs (Figma
+  `icon/tag`): primary, secondary, alternate-01.
+- **Card** — `components/cards/Card.jsx` — Freed surface (Figma card styles): `glass` (default, seven
+  tints), `bubble`, `glow` (five variants), `petri`, with `elevation` none/small/primary.
 - **AuroraFullBleed** — `components/auroras/AuroraFullBleed.jsx` — full-bleed Aurora
   background scene (`orb` / `wave` / `funnel` × colorway), wrapping the content on top.
 - **AuroraFloat** — `components/auroras/AuroraFloat.jsx` — a Float: two singles merged into
   one amorphous shape on transparency, for use over white or photography.
 - **Aurora** — `components/auroras/Aurora.jsx` — a single Aurora shape on transparency;
   shape × vibe × blur.
+- **Button** — `components/buttons/Button.jsx` — call-to-action button (Figma `Buttons`): primary or
+  secondary × xsmall/small/primary/large, hover darkens, optional leading/trailing glyphs.
+- **Logo** — `components/logos/Logo.jsx` — the Freed logo (full, icon, text) and the HIPAA, SOC 2,
+  certification and Loved-by badges (Figma `Logos/*`), as inline vectors in the approved colours.
 - **Underline** — `components/annotations/Underline.jsx` — hand-drawn underline mark, 6 types.
 - **Arrow** — `components/annotations/Arrow.jsx` — hand-drawn pointer, 5 types.
 - **Shape** — `components/annotations/Shape.jsx` — hand-drawn circle/ring around a word, 4 types.
@@ -343,7 +370,8 @@ Three built components have no one-to-one component set in `Library Auroras.fig`
 ## Out of scope (deliberately not built)
 
 `Library Auroras.fig` contains far more than the Aurora system, because unrelated work was
-left in the file. The following is **intentionally skipped**, confirmed with the design owner:
+left in the file. The following is **intentionally skipped**, confirmed with the design owner.
+(The marketing `Button` from "01_Semantic - General" *is* built — the product-UI buttons below are not.)
 
 - **~170 product-UI component families** — Button, Button Icon, Badge (Pill/Square), Menu
   and menu items, Primary Nav / Note Nav / VisitList, Checkbox, Selector, Search input,
@@ -358,18 +386,15 @@ left in the file. The following is **intentionally skipped**, confirmed with the
 - **`.Bird` and Waterbear-class shapes**, per the source file's own design notes.
 - **Deprecated sets** — `.[DEPRECATED] Button`, `.[DEPRECATED] Button Icon`.
 
-All four Figma variable collections **are** imported (`tokens/fig/fig-tokens.css`, 1037
-variables). The Aurora palette proper is the `purple` / `lavender` / `aqua` / `coral` /
-`pepto` / `saline` / `x-ray` / `moss` / `yellow` / `bone` families within it; the remaining
-`Ungrouped` variables are the product system's semantic tokens, present for completeness
-rather than for brand work.
+The older `Library Auroras.fig` variables are no longer imported (`tokens/fig/fig-tokens.css` is kept for
+reference only). Its aurora colour families live on in `tokens/aurora-palette.css`; all other brand tokens
+now come from "01_Semantic - General".
 
 ## Caveats
 
 - **KitRounded (display face) is substituted with Nunito.** The imported system already made
   this substitution and flagged it. Real KitRounded woff2 files would drop into `fonts/` and
-  need one edit to `--font-display` in `tokens/typography.css`.
+  need `@font-face` rules in `tokens/fonts.css`; `--font-family-heading` already lists KitRounded first.
 - **No UI kits.** The imported bundle contained brand foundations only — no product screens,
   no marketing page recreations, and no slide template — so none were reconstructed. Building
   those requires the Freed app codebase or a Figma file.
-- **Logo is PNG-only** at 2572×528; an SVG lockup would be better for large display use.

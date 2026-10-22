@@ -1,0 +1,260 @@
+/* FREED — Aurora palette
+   The colour families of the aurora art (purple, lavender, aqua, coral, pepto, saline, x-ray, moss, yellow, bone),
+   carried over from the earlier "Library Auroras.fig" variables. Not part of the semantic Figma file: use these only
+   for aurora art direction and composition, never for UI fills or text.
+   2026-10-21: values that matched an old primitive the Figma swap changed now use the new primitive value;
+   names the Figma file now defines (purple-200…600, yellow-0, yellow-400) were dropped — the Figma tokens win. */
+:root {
+  --aqua-0: rgb(219,251,255);
+  --aqua-1: rgb(204,249,255);
+  --aqua-2: rgb(128,239,253);
+  --aqua-3-0: rgba(61,223,244,0);
+  --aqua-3-10: rgba(61,223,244,0.1);
+  --aqua-3-20: rgba(61,223,244,0.2);
+  --aqua-3-30: rgba(61,223,244,0.3);
+  --aqua-3-40: rgba(61,223,244,0.4);
+  --aqua-3-50: rgba(61,223,244,0.5);
+  --aqua-3-60: rgba(61,223,244,0.6);
+  --aqua-3-70: rgba(61,223,244,0.7);
+  --aqua-3-80: rgba(61,223,244,0.8);
+  --aqua-3-90: rgba(61,223,244,0.9);
+  --aqua-3: rgb(61,223,244);
+  --aqua-4: rgb(151,235,245);
+  --aqua-soft-1-0: rgba(204,249,255,0);
+  --aqua-soft-1-10: rgba(204,249,255,0.1);
+  --aqua-soft-1-40: rgba(204,249,255,0.4);
+  --aqua-soft-1-60: rgba(204,249,255,0.6);
+  --aqua-soft-1-80: rgba(204,249,255,0.8);
+  --aqua-soft-1-95: rgba(204,249,255,0.95);
+  --bone-100-2: rgb(255,248,233);
+  --bone-100-3: rgb(255,247,235);
+  --bone-100-4: var(--bone-100-2);
+  --bone-1200-10: rgba(36,22,0,0.1);
+  --bone-1200-5: rgba(36,22,0,0.05);
+  --bone-150: rgb(255,239,199);
+  --bone-250: rgb(255,225,158);
+  --bone-2: rgb(255,248,233);
+  --bone-300-2: rgb(255,213,124);
+  --bone-450-2: rgb(255,197,102);
+  --bone-450: rgb(255,197,102);
+  --bone-750: rgb(167,109,0);
+  --coral-0: rgb(251,230,223);
+  --coral-1: rgb(255,197,178);
+  --coral-2-0: rgba(255,147,112,0);
+  --coral-2-10: rgba(255,147,112,0.1);
+  --coral-2-20: rgba(255,147,112,0.2);
+  --coral-2-30: rgba(255,147,112,0.3);
+  --coral-2-40: rgba(255,147,112,0.4);
+  --coral-2-50: rgba(255,147,112,0.5);
+  --coral-2-60: rgba(255,147,112,0.6);
+  --coral-2-70: rgba(255,147,112,0.7);
+  --coral-2-80: rgba(255,147,112,0.8);
+  --coral-2-90: rgba(255,147,112,0.9);
+  --coral-2: rgb(255,147,112);
+  --coral-3: rgb(255,100,48);
+  --coral-4: rgb(255,63,0);
+  --coral-soft-1-0: rgba(255,197,178,0);
+  --coral-soft-1-10: rgba(255,197,178,0.1);
+  --coral-soft-1-40: rgba(255,197,178,0.4);
+  --coral-soft-1-60: rgba(255,197,178,0.6);
+  --coral-soft-1-80: rgba(255,197,178,0.8);
+  --coral-soft-1-95: rgba(255,197,178,0.95);
+  --coral-subtle-0-0: rgba(251,230,223,0);
+  --coral-subtle-0-10: rgba(251,230,223,0.1);
+  --coral-subtle-0-40: rgba(251,230,223,0.4);
+  --coral-subtle-0-60: rgba(251,230,223,0.6);
+  --coral-subtle-0-80: rgba(251,230,223,0.8);
+  --coral-subtle-0-95: rgba(251,230,223,0.95);
+  --lavender-1150: rgb(23,21,41);
+  --lavender-150: rgb(241,240,255);
+  --lavender-1: rgb(226,224,255); /* was #e5dbff; updated with the Figma primitive swap */
+  --lavender-2: rgb(210,188,254);
+  --lavender-3-0: rgba(187,153,255,0);
+  --lavender-3-10: rgba(187,153,255,0.1);
+  --lavender-3-20: rgba(187,153,255,0.2);
+  --lavender-3-2: rgb(241,240,255);
+  --lavender-3-30: rgba(187,153,255,0.3);
+  --lavender-3-40: rgba(187,153,255,0.4);
+  --lavender-3-50: rgba(187,153,255,0.5);
+  --lavender-3-60: rgba(187,153,255,0.6);
+  --lavender-3-70: rgba(187,153,255,0.7);
+  --lavender-3-80: rgba(187,153,255,0.8);
+  --lavender-3-90: rgba(187,153,255,0.9);
+  --lavender-350-2: rgb(207,201,255);
+  --lavender-350: rgb(207,201,255);
+  --lavender-3: rgb(187,153,255);
+  --lavender-450: rgb(189,180,255);
+  --lavender-550: rgb(124,83,227);
+  --lavender-650: rgb(106,60,223);
+  --lavender-850: rgb(83,65,157);
+  --lavender-9-2: rgb(106,60,223);
+  --lavender-9-3: rgb(106,60,223);
+  --lavender-9: rgb(106,60,223);
+  --lavender-a11: rgb(80,33,199);
+  --lavender-a12: rgb(50,31,107);
+  --lavender-soft-1-0: rgba(226,224,255,0); /* was #e5dbff; updated with the Figma primitive swap */
+  --lavender-soft-1-10: rgba(226,224,255,0.1); /* was #e5dbff; updated with the Figma primitive swap */
+  --lavender-soft-1-40: rgba(226,224,255,0.4); /* was #e5dbff; updated with the Figma primitive swap */
+  --lavender-soft-1-60: rgba(226,224,255,0.6); /* was #e5dbff; updated with the Figma primitive swap */
+  --lavender-soft-1-80: rgba(226,224,255,0.8); /* was #e5dbff; updated with the Figma primitive swap */
+  --lavender-soft-1-95: rgba(226,224,255,0.95); /* was #e5dbff; updated with the Figma primitive swap */
+  --moss-moss-1: rgb(164,254,213);
+  --moss-moss-2: rgb(109,247,185);
+  --moss-moss-3-0: rgba(56,249,162,0);
+  --moss-moss-3-10: rgba(56,249,162,0.1);
+  --moss-moss-3-20: rgba(56,249,162,0.2);
+  --moss-moss-3-30: rgba(56,249,162,0.3);
+  --moss-moss-3-40: rgba(56,249,162,0.4);
+  --moss-moss-3-50: rgba(56,249,162,0.5);
+  --moss-moss-3-60: rgba(56,249,162,0.6);
+  --moss-moss-3-70: rgba(56,249,162,0.7);
+  --moss-moss-3-80: rgba(56,249,162,0.8);
+  --moss-moss-3-90: rgba(56,249,162,0.9);
+  --moss-moss-3: rgb(56,249,162);
+  --moss-soft-1-0: rgba(164,254,213,0);
+  --moss-soft-1-10: rgba(164,254,213,0.1);
+  --moss-soft-1-40: rgba(164,254,213,0.4);
+  --moss-soft-1-60: rgba(164,254,213,0.6);
+  --moss-soft-1-80: rgba(164,254,213,0.8);
+  --moss-soft-1-95: rgba(164,254,213,0.95);
+  --pepto-100-0: rgba(255,224,240,0);
+  --pepto-1: rgb(255,183,218);
+  --pepto-2-0: rgba(255,127,190,0);
+  --pepto-2-10: rgba(255,127,190,0.1);
+  --pepto-2-20: rgba(255,127,190,0.2);
+  --pepto-2-30: rgba(255,127,190,0.3);
+  --pepto-2-40: rgba(255,127,190,0.4);
+  --pepto-2-50: rgba(255,127,190,0.5);
+  --pepto-2-60: rgba(255,127,190,0.6);
+  --pepto-2-70: rgba(255,127,190,0.7);
+  --pepto-2-80: rgba(255,127,190,0.8);
+  --pepto-2-90: rgba(255,127,190,0.9);
+  --pepto-200-0: rgba(255,199,228,0);
+  --pepto-200-10: rgba(255,199,228,0.1);
+  --pepto-2: rgb(255,127,190);
+  --pepto-300-0: rgba(255,163,209,0);
+  --pepto-3: rgb(249,93,170);
+  --pepto-450: rgb(255,141,204);
+  --pepto-4: rgb(241,59,149);
+  --pepto-5: rgb(237,94,166);
+  --pepto-soft-1-0: rgba(255,183,218,0);
+  --pepto-soft-1-10: rgba(255,183,218,0.1);
+  --pepto-soft-1-40: rgba(255,183,218,0.4);
+  --pepto-soft-1-60: rgba(255,183,218,0.6);
+  --pepto-soft-1-80: rgba(255,183,218,0.8);
+  --pepto-soft-1-95: rgba(255,183,218,0.95);
+  --purple-1: rgb(207,201,255);
+  --purple-2: rgb(164,149,255);
+  --purple-3-0: rgba(137,106,255,0); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-3-10: rgba(137,106,255,0.1); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-3-20: rgba(137,106,255,0.2); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-3-30: rgba(137,106,255,0.3); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-3-40: rgba(137,106,255,0.4); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-3-50: rgba(137,106,255,0.5); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-3-60: rgba(137,106,255,0.6); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-3-70: rgba(137,106,255,0.7); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-3-80: rgba(137,106,255,0.8); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-3-90: rgba(137,106,255,0.9); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-300-0: rgba(203,198,255,0); /* was #d3c2ff; updated with the Figma primitive swap */
+  --purple-300-10: rgba(203,198,255,0.1); /* was #d3c2ff; updated with the Figma primitive swap */
+  --purple-300-20: rgba(203,198,255,0.2); /* was #d3c2ff; updated with the Figma primitive swap */
+  --purple-3: rgb(137,106,255); /* was #9166ff; updated with the Figma primitive swap */
+  --purple-4-90: rgba(106,60,223,0.9);
+  --purple-400-0: rgba(170,158,255,0); /* was #b699ff; updated with the Figma primitive swap */
+  --purple-400-10: rgba(170,158,255,0.1); /* was #b699ff; updated with the Figma primitive swap */
+  --purple-4: rgb(106,60,223);
+  --purple-5: rgb(124,83,227);
+  --purple-600-0: rgba(106,60,223,0);
+  --purple-600-2: rgb(142,78,198);
+  --purple-6: rgb(74,44,184);
+  --purple-750: rgb(129,69,181);
+  --purple-7: rgb(43,12,134);
+  --purple-800-0: rgba(83,65,157,0);
+  --purple-purple1000: rgb(43,36,81);
+  --purple-purple100: rgb(243,240,255);
+  --purple-purple300: rgb(184,172,246);
+  --purple-purple400: rgb(159,143,239);
+  --purple-purple500: rgb(143,126,231);
+  --purple-purple600: rgb(130,112,219);
+  --purple-purple700: rgb(110,93,198);
+  --purple-purple800: rgb(94,77,178);
+  --purple-soft-1-0: rgba(207,201,255,0);
+  --purple-soft-1-10: rgba(207,201,255,0.1);
+  --purple-soft-1-40: rgba(207,201,255,0.4);
+  --purple-soft-1-60: rgba(207,201,255,0.6);
+  --purple-soft-1-80: rgba(207,201,255,0.8);
+  --purple-soft-1-95: rgba(207,201,255,0.95);
+  --saline-1: rgb(204,217,255);
+  --saline-200-0: rgba(206,221,253,0);
+  --saline-200-10: rgba(206,221,253,0.1);
+  --saline-200-40: rgba(206,221,253,0.4);
+  --saline-2: rgb(163,188,255);
+  --saline-3-0: rgba(139,168,254,0);
+  --saline-3-10: rgba(139,168,254,0.1);
+  --saline-3-20: rgba(139,168,254,0.2);
+  --saline-3-30: rgba(139,168,254,0.3);
+  --saline-3-40: rgba(139,168,254,0.4);
+  --saline-3-50: rgba(139,168,254,0.5);
+  --saline-3-60: rgba(139,168,254,0.6);
+  --saline-3-70: rgba(139,168,254,0.7);
+  --saline-3-80: rgba(139,168,254,0.8);
+  --saline-3-90: rgba(139,168,254,0.9);
+  --saline-3: rgb(139,168,254);
+  --saline-4: rgb(97,134,245);
+  --saline-800-0: rgba(14,48,166,0);
+  --saline-900-20: rgba(4,27,108,0.2);
+  --saline-soft-1-0: rgba(204,217,255,0);
+  --saline-soft-1-10: rgba(204,217,255,0.1);
+  --saline-soft-1-40: rgba(204,217,255,0.4);
+  --saline-soft-1-60: rgba(204,217,255,0.6);
+  --saline-soft-1-80: rgba(204,217,255,0.8);
+  --saline-soft-1-95: rgba(204,217,255,0.95);
+  --saline-solid-saline-d4: var(--saline-900);
+  --x-ray-1: rgb(182,251,247);
+  --x-ray-2-0: rgba(98,232,225,0);
+  --x-ray-2-10: rgba(98,232,225,0.1);
+  --x-ray-2-20: rgba(98,232,225,0.2);
+  --x-ray-2-30: rgba(98,232,225,0.3);
+  --x-ray-2-40: rgba(98,232,225,0.4);
+  --x-ray-2-50: rgba(98,232,225,0.5);
+  --x-ray-2-60: rgba(98,232,225,0.6);
+  --x-ray-2-70: rgba(98,232,225,0.7);
+  --x-ray-2-80: rgba(98,232,225,0.8);
+  --x-ray-2-90: rgba(98,232,225,0.9);
+  --x-ray-2: rgb(98,232,225);
+  --x-ray-3: rgb(94,237,230);
+  --x-ray-4: rgb(140,242,237);
+  --x-ray-5: rgb(181,236,233);
+  --x-ray-soft-1-0: rgba(182,251,247,0);
+  --x-ray-soft-1-10: rgba(182,251,247,0.1);
+  --x-ray-soft-1-40: rgba(182,251,247,0.4);
+  --x-ray-soft-1-60: rgba(182,251,247,0.6);
+  --x-ray-soft-1-80: rgba(182,251,247,0.8);
+  --x-ray-soft-1-95: rgba(182,251,247,0.95);
+  --yellow-1: rgb(249,243,158);
+  --yellow-2-0: rgba(246,235,85,0);
+  --yellow-2-10: rgba(246,235,85,0.1);
+  --yellow-2-20: rgba(246,235,85,0.2);
+  --yellow-2-30: rgba(246,235,85,0.3);
+  --yellow-2-40: rgba(246,235,85,0.4);
+  --yellow-2-50: rgba(246,235,85,0.5);
+  --yellow-2-60: rgba(246,235,85,0.6);
+  --yellow-2-70: rgba(246,235,85,0.7);
+  --yellow-2-80: rgba(246,235,85,0.8);
+  --yellow-2-90: rgba(246,235,85,0.9);
+  --yellow-2: rgb(246,235,85);
+  --yellow-3: rgb(255,224,20);
+  --yellow-400-20: rgba(246,230,0,0.2);
+  --yellow-400-50: rgba(246,230,0,0.5);
+  --yellow-400-90: rgba(246,230,0,0.9);
+  --yellow-soft-1-0: rgba(249,243,158,0);
+  --yellow-soft-1-10: rgba(249,243,158,0.1);
+  --yellow-soft-1-40: rgba(249,243,158,0.4);
+  --yellow-soft-1-60: rgba(249,243,158,0.6);
+  --yellow-soft-1-80: rgba(249,243,158,0.8);
+  --yellow-soft-1-95: rgba(249,243,158,0.95);
+  --yellow-yellow1000: rgb(63,49,2);
+  --yellow-yellow100: rgb(255,247,214);
+  --yellow-yellow300: rgb(245,205,71);
+  --yellow-yellow400: rgb(226,178,3);
+}

@@ -1,14 +1,14 @@
 /* ============================================================
    FREED — Design System entry stylesheet.
    Consumers: link this one file.
+   Token files are generated from the Figma file "01_Semantic - General"
+   (figma-references/semantic-general-10-21-26.fig), the source of truth.
    ============================================================ */
-/* Aurora library tokens (imported from "Library Auroras.fig" — all 4 variable
-   collections, 1037 vars). Loaded FIRST so the curated Freed tokens below win
-   on any name collision. */
-@import url("tokens/fig/fig-tokens.css");
-
 @import url("tokens/fonts.css");
-@import url("tokens/colors.css");
-@import url("tokens/typography.css");
-@import url("tokens/spacing.css");
+@import url("tokens/colors.css");        /* primitive ramps + Base relative steps and opacity variants */
+@import url("tokens/theme.css");         /* semantic Theme tokens: Default (light) and [data-theme="dark"] */
+@import url("tokens/typography.css");    /* families, weights, sizes, Figma text styles as classes */
+@import url("tokens/spacing.css");       /* Layout: radius, border width, spacing, padding, containers */
+@import url("tokens/effects.css");       /* Figma effect styles as box-shadow values */
+@import url("tokens/aurora-palette.css");/* aurora art colours (not for UI) */
 @import url("tokens/motion.css");

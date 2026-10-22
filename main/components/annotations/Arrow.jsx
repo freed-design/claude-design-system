@@ -1,7 +1,7 @@
 // figma node: 12985:1805 Arrow (5 variants) — digital redraw: constant stroke width
 const __aSt = (w) => ({ fill: "none", stroke: "currentColor", strokeWidth: w, strokeLinecap: "round", strokeLinejoin: "round" });
 const __aWrap = (props, w, h, paths) => (
-  <div className={props.className} style={{ width: w, height: h, position: "relative", color: "var(--green-0, #62E774)", ...props.style }}>
+  <div className={props.className} style={{ width: w, height: h, position: "relative", color: "var(--text-annotations-primary, #62E774)", ...props.style }}>
     <svg width={w} height={h} viewBox={"0 0 " + w + " " + h} style={{ position: "absolute", left: 0, top: 0 }}>
       {paths.map((d, i) => <path key={i} d={d} {...__aSt(props.strokeWidth)} />)}
     </svg>

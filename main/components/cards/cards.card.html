@@ -1,6 +1,6 @@
-<!-- @dsCard group="05 Cards" viewport="700x375" name="Card surfaces" subtitle="Glass, bubble, glow, and petri dish" -->
+<!-- @dsCard group="05 Cards" viewport="700x1000" name="Card surfaces" subtitle="Glass, bubble, glow and petri dish — the Figma card styles" -->
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>*{box-sizing:border-box}html,body{margin:0}body{width:700px;font-family:var(--font-sans);color:var(--ink);background:#fff;padding:16px 20px}.row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 18px}.h{font:600 10px/1 var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--neutral-500);margin:0 0 8px}.on{background:linear-gradient(135deg,var(--lavender-400),var(--xray-400) 55%,var(--pepto-300));border-radius:16px;padding:14px}.shot{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:var(--elevation-small)}.shot-t{font:600 12px/1.3 var(--font-sans);color:var(--ink);margin-bottom:8px}.shot-l{height:7px;border-radius:4px;background:var(--neutral-100);margin-bottom:6px}.shot-l.short{width:60%;margin-bottom:0}</style></head>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>*{box-sizing:border-box}html,body{margin:0}body{width:700px;font-family:var(--font-family-body);color:var(--text-color-primary);background:var(--background-primary);padding:16px 20px}.h{font:600 10px/1 var(--font-family-body);letter-spacing:.07em;text-transform:uppercase;color:var(--text-color-secondary);margin:0 0 8px}.row{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 20px;margin-bottom:18px}.on{background:url(../../assets/auroras/fullbleed-orb-purple-soft.png) center/cover no-repeat var(--purple-100);border-radius:var(--border-radius-primary);padding:16px}.g5{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:6px 0 18px;padding:10px 4px}.shot{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:var(--effect-elevation-tiny)}.shot-t{font:600 12px/1.3 var(--font-family-body);margin-bottom:8px}.shot-l{height:7px;border-radius:4px;background:var(--neutral-200);margin-bottom:6px}.shot-l.short{width:60%;margin-bottom:0}</style></head>
 <body>
 <div id="root"></div>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -13,23 +13,13 @@ const T = 'Specialty templates', B = 'Match your workflow and visit types.';
 function Demo() {
   return <div>
     <div className="row">
-      <div>
-        <p className="h">Glass · neutral, on a backdrop</p>
-        <div className="on"><Card effect="glass" color="neutral" elevation="medium" title={T} body={B} /></div>
-      </div>
-      <div>
-        <p className="h">Petri dish · holds product imagery</p>
-        <Card effect="petri"><div className="shot"><div className="shot-t">Chief complaint</div><div className="shot-l"></div><div className="shot-l short"></div></div></Card>
-      </div>
-      <div>
-        <p className="h">Glow</p>
-        <Card effect="glow" title={T} body={B} style={{width:'100%'}} />
-      </div>
-      <div>
-        <p className="h">Bubble</p>
-        <Card effect="bubble" title={T} body={B} />
-      </div>
+      <div><p className="h">Glass · primary (clear), elevation small</p><div className="on"><Card effect="glass" color="primary" elevation="small" title={T} body={B} /></div></div>
+      <div><p className="h">Glass · secondary (purple)</p><div className="on"><Card effect="glass" color="secondary" elevation="primary" title={T} body={B} /></div></div>
+      <div><p className="h">Bubble · elevation small</p><Card effect="bubble" elevation="small" title={T} body={B} /></div>
+      <div><p className="h">Petri dish · product imagery only</p><Card effect="petri"><div className="shot"><div className="shot-t">Chief complaint</div><div className="shot-l"></div><div className="shot-l short"></div></div></Card></div>
     </div>
+    <p className="h">Glow · primary, secondary, alternate-01, alternate-02, alternate-03 — one per screen</p>
+    <div className="g5">{Card.glowColors.map(c => <Card key={c} effect="glow" color={c} title="Note ready" body={c} />)}</div>
   </div>;
 }
 ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);

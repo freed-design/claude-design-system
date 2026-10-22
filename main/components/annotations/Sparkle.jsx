@@ -1,7 +1,7 @@
 // figma node: 12985:1851 Sparkle (3 variants) — digital redraw: constant stroke width
 const __kSt = (w) => ({ fill: "none", stroke: "currentColor", strokeWidth: w, strokeLinecap: "round", strokeLinejoin: "round" });
 const __kWrap = (props, w, h, paths) => (
-  <div className={props.className} style={{ width: w, height: h, position: "relative", color: "var(--green-0, #62E774)", ...props.style }}>
+  <div className={props.className} style={{ width: w, height: h, position: "relative", color: "var(--text-annotations-primary, #62E774)", ...props.style }}>
     <svg width={w} height={h} viewBox={"0 0 " + w + " " + h} style={{ position: "absolute", left: 0, top: 0 }}>
       {paths.map((d, i) => <path key={i} d={d} {...__kSt(props.strokeWidth)} />)}
     </svg>

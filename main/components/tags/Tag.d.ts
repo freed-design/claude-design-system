@@ -1,18 +1,19 @@
 /**
- * A pill holding a label and, optionally, a glyph — 36px tall, fully rounded.
+ * A pill holding a label and optional glyphs — the Figma "icon/tag" component (36px tall, fully rounded).
  */
 export interface TagProps {
-  /** Label text. Sentence case, short. */
+  /** Label text (body/xsmall, 14px). Sentence case, one or two words. */
   label?: string;
-  /** Phosphor (regular) glyph name. Omit for a label-only pill. */
+  /** Phosphor (regular) glyph name for the leading glyph (20px). */
   icon?: string | null;
-  /** Which side the glyph sits on. */
+  /** Put `icon` after the label instead. */
   iconPosition?: 'leading' | 'trailing';
-  /** Any brand hue, in a subtle (pale fill, dark text) or `-strong`
-   *  (dark fill, white text) family. Both pass AA at 14px. */
-  color?: 'purple' | 'saline' | 'pepto' | 'xray' | 'green' | 'yellow' | 'red' | 'coral' | 'neutral'
-    | 'purple-strong' | 'saline-strong' | 'pepto-strong' | 'xray-strong' | 'green-strong' | 'red-strong' | 'ink-strong';
-  /** Escape hatch for a fill outside the named set — check the contrast yourself. */
+  /** A second glyph after the label. */
+  trailingIcon?: string | null;
+  /** Figma "Tags/bg/*". primary = purple-100 with purple text (passes AA). secondary (saline-500) and
+   *  alternate-01 (pepto-400) carry white text and FAIL AA at 14px — flagged, kept as Figma defines them. */
+  color?: 'primary' | 'secondary' | 'alternate-01';
+  /** Escape hatch for the fill — check the contrast yourself. */
   bg?: string;
   /** Escape hatch for the text colour. */
   fg?: string;

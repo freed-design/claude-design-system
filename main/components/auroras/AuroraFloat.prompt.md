@@ -3,7 +3,7 @@ Use `AuroraFloat` when you want one self-contained aurora shape rather than a fu
 ```jsx
 <div style={{position:'relative'}}>
   <AuroraFloat width={760} style={{position:'absolute', left:-80, top:40, zIndex:0}} />
-  <h1 className="heading-style-h1" style={{position:'relative'}}>The AI scribe built for mental health</h1>
+  <h1 className="headlines-h1" style={{position:'relative'}}>The AI scribe built for mental health</h1>
 </div>
 ```
 
@@ -17,4 +17,4 @@ Use `AuroraFloat` when you want one self-contained aurora shape rather than a fu
   - `clover` — a three-lobed form with one deep lobe low-right; `pepto` and `sky` colorways.
   - `curl` (purple) — a single comma-shaped mass, dark at the top-left shoulder.
   - `swirl` (purple-sky) — two forms interleaved through a pale channel; the most complex, so give it room.
-- Large display text belongs **over** a float, not beside it — that's the point of the shape. Set the copy against the pale part of the form and let the saturated lobe sit clear of it: `--ink` over the pale areas of `drift` and `ember`, `.heading-white` over the dense purple of `doubleboom`. Never run a line straight through a saturated lobe.
+- Large display text belongs **over** a float, not beside it — that's the point of the shape. Set the copy against the pale part of the form and let the saturated lobe sit clear of it: `--text-color-primary` over the pale areas of `drift` and `ember`, `.heading-white` over the dense purple of `doubleboom`. Never run a line straight through a saturated lobe.

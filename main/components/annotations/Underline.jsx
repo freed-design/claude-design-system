@@ -1,7 +1,7 @@
 // figma node: 12985:1740 Underline (6 variants) — digital redraw: constant stroke width
 const __uSt = (w) => ({ fill: "none", stroke: "currentColor", strokeWidth: w, strokeLinecap: "round", strokeLinejoin: "round" });
 const __uWrap = (props, w, h, paths) => (
-  <div className={props.className} style={{ width: w, height: h, position: "relative", color: "var(--green-0, #62E774)", ...props.style }}>
+  <div className={props.className} style={{ width: w, height: h, position: "relative", color: "var(--text-annotations-primary, #62E774)", ...props.style }}>
     <svg width={w} height={h} viewBox={"0 0 " + w + " " + h} style={{ position: "absolute", left: 0, top: 0 }}>
       {paths.map((d, i) => <path key={i} d={d} {...__uSt(props.strokeWidth)} />)}
     </svg>

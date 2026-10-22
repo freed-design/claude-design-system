@@ -1,0 +1,252 @@
+/* FREED — Theme (semantic) tokens, Default (light) and Dark mode
+   GENERATED from the Figma file "01_Semantic - General" (figma-references/semantic-general-10-21-26.fig).
+   Figma is the source of truth: change values there, then regenerate. Names follow Figma's variable names. */
+:root, [data-theme="light"] {
+
+  /* Background */
+  --background-alternate-01: var(--purple-l6); /* Background / alternate-01. Light: purple-l6 (#f5f5ff); dark: purple-d2 (#4c26a7). */
+  --background-alternate-02: var(--purple-l3); /* Background / alternate-02. Light: purple-l3 (#cbc6ff); dark: purple-0 (#6a3cdf). */
+  --background-primary: var(--neutral-l5); /* Background / primary. Light: neutral-l5 (#ffffff); dark: purple-d4 (#280467). */
+  --background-secondary: var(--neutral-l4); /* Background / secondary. Light: neutral-l4 (#fafafa); dark: purple-d3 (#3b0d8b). */
+
+  /* Border Color */
+  --border-color-focus: var(--purple-0); /* Border Color / focus. Light: purple-0 (#6a3cdf); dark: purple-0 (#6a3cdf). */
+  --border-color-primary: var(--saline-d4-10); /* Border Color / primary. Light: saline-d4-10 (rgba(4,27,108,0.1)); dark: neutral-l5-10 (rgba(255,255,255,0.1)). */
+  --border-color-secondary: var(--saline-d4-30); /* Border Color / secondary. Light: saline-d4-30 (rgba(4,27,108,0.3)); dark: neutral-l5-30 (rgba(255,255,255,0.3)). */
+
+  /* Bubble Cards */
+  --bubble-cards-bg-primary: var(--neutral-l5); /* Bubble Cards / bg / primary. Light: neutral-l5 (#ffffff); dark: neutral-l5-0 (rgba(255,255,255,0)). */
+  --bubble-cards-depth-highlight-sharp: var(--neutral-l5); /* Bubble Cards / depth / highlight-sharp. Light: neutral-l5 (#ffffff); dark: neutral-l5-30 (rgba(255,255,255,0.3)). */
+  --bubble-cards-depth-highlight-soft: var(--neutral-l5-30); /* Bubble Cards / depth / highlight-soft. Light: neutral-l5-30 (rgba(255,255,255,0.3)); dark: neutral-l5-30 (rgba(255,255,255,0.3)). */
+  --bubble-cards-depth-inner-shadow: var(--neutral-d5-10); /* Bubble Cards / depth / inner-shadow. Light: neutral-d5-10 (rgba(0,0,0,0.1)); dark: neutral-d5-20 (rgba(0,0,0,0.2)). */
+
+  /* Buttons */
+  --buttons-bg-primary: var(--purple-0); /* Buttons / bg / primary. Light: purple-0 (#6a3cdf); dark: neutral-l5 (#ffffff). */
+  --buttons-bg-primary-hover: var(--purple-d2); /* Buttons / bg / primary-hover. Light: purple-d2 (#4c26a7); dark: purple-0 (#6a3cdf). */
+  --buttons-bg-secondary: var(--neutral-l5-0); /* Buttons / bg / secondary. Light: neutral-l5-0 (rgba(255,255,255,0)); dark: neutral-l5-0 (rgba(255,255,255,0)). */
+  --buttons-bg-secondary-border: var(--purple-0); /* Buttons / bg / secondary-border. Light: purple-0 (#6a3cdf); dark: neutral-l5 (#ffffff). */
+  --buttons-bg-secondary-border-hover: var(--purple-0-50); /* Buttons / bg / secondary-border-hover. Light: purple-0-50 (rgba(106,60,223,0.5)); dark: neutral-l5-50 (rgba(255,255,255,0.5)). */
+  --buttons-bg-secondary-hover: var(--neutral-l5-0); /* Buttons / bg / secondary-hover. Light: neutral-l5-0 (rgba(255,255,255,0)); dark: neutral-l5-0 (rgba(255,255,255,0)). */
+  --buttons-text-primary: var(--neutral-l5); /* Buttons / text / primary. Light: neutral-l5 (#ffffff); dark: purple-0 (#6a3cdf). */
+  --buttons-text-primary-hover: var(--neutral-l5); /* Buttons / text / primary-hover. Light: neutral-l5 (#ffffff); dark: neutral-l5 (#ffffff). */
+  --buttons-text-secondary: var(--purple-0); /* Buttons / text / secondary. Light: purple-0 (#6a3cdf); dark: neutral-l5 (#ffffff). */
+  --buttons-text-secondary-hover: var(--purple-0); /* Buttons / text / secondary-hover. Light: purple-0 (#6a3cdf); dark: neutral-l5 (#ffffff). */
+
+  /* Elevation */
+  --elevation-primary: var(--neutral-d5-10); /* Elevation / primary. Light: neutral-d5-10 (rgba(0,0,0,0.1)); dark: neutral-d5-10 (rgba(0,0,0,0.1)). */
+  --elevation-secondary: var(--neutral-d5-20); /* Elevation / secondary. Light: neutral-d5-20 (rgba(0,0,0,0.2)); dark: neutral-d5-20 (rgba(0,0,0,0.2)). */
+
+  /* Glass Cards */
+  --glass-cards-bg-alternate-01: var(--saline-0-60); /* Glass Cards / bg / alternate-01. Light: saline-0-60 (rgba(139,168,254,0.6)); dark: saline-d1-40 (rgba(85,123,247,0.4)). */
+  --glass-cards-bg-alternate-02: var(--xray-d1-50); /* Glass Cards / bg / alternate-02. Light: xray-d1-50 (rgba(14,214,204,0.5)); dark: xray-d1-50 (rgba(14,214,204,0.5)). */
+  --glass-cards-bg-alternate-03: var(--pepto-d1-50); /* Glass Cards / bg / alternate-03. Light: pepto-d1-50 (rgba(249,93,170,0.5)); dark: pepto-d1-50 (rgba(249,93,170,0.5)). */
+  --glass-cards-bg-error: var(--red-0-60); /* Glass Cards / bg / error. Light: red-0-60 (rgba(224,25,0,0.6)); dark: red-0-40 (rgba(224,25,0,0.4)). */
+  --glass-cards-bg-primary: var(--neutral-l4-60); /* Glass Cards / bg / primary. Light: neutral-l4-60 (rgba(250,250,250,0.6)); dark: neutral-l4-20 (rgba(250,250,250,0.2)). */
+  --glass-cards-bg-secondary: var(--purple-l2-60); /* Glass Cards / bg / secondary. Light: purple-l2-60 (rgba(170,158,255,0.6)); dark: purple-0-60 (rgba(106,60,223,0.6)). */
+  --glass-cards-bg-success: var(--green-d1-70); /* Glass Cards / bg / success. Light: green-d1-70 (rgba(52,203,72,0.7)); dark: green-d1-50 (rgba(52,203,72,0.5)). */
+  --glass-cards-depth-highlight-sharp: var(--neutral-l5); /* Glass Cards / depth / highlight-sharp. Light: neutral-l5 (#ffffff); dark: neutral-l5-30 (rgba(255,255,255,0.3)). */
+  --glass-cards-depth-highlight-soft: var(--neutral-l5-90); /* Glass Cards / depth / highlight-soft. Light: neutral-l5-90 (rgba(255,255,255,0.9)); dark: neutral-l5-50 (rgba(255,255,255,0.5)). */
+  --glass-cards-depth-highlight-softer: var(--neutral-l5-70); /* Glass Cards / depth / highlight-softer. Light: neutral-l5-70 (rgba(255,255,255,0.7)); dark: neutral-l5-10 (rgba(255,255,255,0.1)). */
+  --glass-cards-depth-inner-shadow: var(--neutral-d5-10); /* Glass Cards / depth / inner-shadow. Light: neutral-d5-10 (rgba(0,0,0,0.1)); dark: neutral-d5-5 (rgba(0,0,0,0.05)). */
+
+  /* Glow Cards */
+  --glow-cards-alternate-01-elevation-left: var(--saline-d4-20); /* Glow Cards / alternate-01 / elevation-left. Light: saline-d4-20 (rgba(4,27,108,0.2)); dark: saline-d1-30 (rgba(85,123,247,0.3)). */
+  --glow-cards-alternate-01-elevation-right: var(--saline-0-30); /* Glow Cards / alternate-01 / elevation-right. Light: saline-0-30 (rgba(139,168,254,0.3)); dark: saline-0-30 (rgba(139,168,254,0.3)). */
+  --glow-cards-alternate-01-gradient-stop-01: var(--saline-d1-30); /* Glow Cards / alternate-01 / gradient-stop-01. Light: saline-d1-30 (rgba(85,123,247,0.3)); dark: saline-d1 (#557bf7). */
+  --glow-cards-alternate-01-gradient-stop-02: var(--saline-d1); /* Glow Cards / alternate-01 / gradient-stop-02. Light: saline-d1 (#557bf7); dark: saline-l3-50 (rgba(206,221,253,0.5)). */
+  --glow-cards-alternate-02-elevation-left: var(--pepto-l1-30); /* Glow Cards / alternate-02 / elevation-left. Light: pepto-l1-30 (rgba(255,163,209,0.3)); dark: pepto-l1-30 (rgba(255,163,209,0.3)). */
+  --glow-cards-alternate-02-elevation-right: var(--pepto-d1-30); /* Glow Cards / alternate-02 / elevation-right. Light: pepto-d1-30 (rgba(249,93,170,0.3)); dark: pepto-d1-50 (rgba(249,93,170,0.5)). */
+  --glow-cards-alternate-02-gradient-stop-01: var(--purple-l1-30); /* Glow Cards / alternate-02 / gradient-stop-01. Light: purple-l1-30 (rgba(137,106,255,0.3)); dark: purple-l1-80 (rgba(137,106,255,0.8)). */
+  --glow-cards-alternate-02-gradient-stop-02: var(--pepto-0); /* Glow Cards / alternate-02 / gradient-stop-02. Light: pepto-0 (#ff7fbe); dark: pepto-0 (#ff7fbe). */
+  --glow-cards-alternate-03-elevation-left: var(--green-0-20); /* Glow Cards / alternate-03 / elevation-left. Light: green-0-20 (rgba(98,231,116,0.2)); dark: green-0-20 (rgba(98,231,116,0.2)). */
+  --glow-cards-alternate-03-elevation-right: var(--xray-d1-20); /* Glow Cards / alternate-03 / elevation-right. Light: xray-d1-20 (rgba(14,214,204,0.2)); dark: xray-d1-20 (rgba(14,214,204,0.2)). */
+  --glow-cards-alternate-03-gradient-stop-01: var(--green-l3); /* Glow Cards / alternate-03 / gradient-stop-01. Light: green-l3 (#c6fbcd); dark: green-l2-80 (rgba(167,241,177,0.8)). */
+  --glow-cards-alternate-03-gradient-stop-02: var(--xray-d1-60); /* Glow Cards / alternate-03 / gradient-stop-02. Light: xray-d1-60 (rgba(14,214,204,0.6)); dark: xray-d1-60 (rgba(14,214,204,0.6)). */
+  --glow-cards-primary-elevation-left: var(--pepto-l1-30); /* Glow Cards / primary / elevation-left. Light: pepto-l1-30 (rgba(255,163,209,0.3)); dark: pepto-d1-30 (rgba(249,93,170,0.3)). */
+  --glow-cards-primary-elevation-right: var(--purple-0-30); /* Glow Cards / primary / elevation-right. Light: purple-0-30 (rgba(106,60,223,0.3)); dark: purple-0-40 (rgba(106,60,223,0.4)). */
+  --glow-cards-primary-gradient-01-stop-01: var(--pepto-d1-0); /* Glow Cards / primary / gradient-01-stop-01. Light: pepto-d1-0 (rgba(249,93,170,0)); dark: pepto-d1-0 (rgba(249,93,170,0)). */
+  --glow-cards-primary-gradient-01-stop-02: var(--pepto-d1-80); /* Glow Cards / primary / gradient-01-stop-02. Light: pepto-d1-80 (rgba(249,93,170,0.8)); dark: pepto-d1 (#f95daa). */
+  --glow-cards-primary-gradient-02-stop-01: var(--purple-0-50); /* Glow Cards / primary / gradient-02-stop-01. Light: purple-0-50 (rgba(106,60,223,0.5)); dark: purple-0-50 (rgba(106,60,223,0.5)). */
+  --glow-cards-primary-gradient-02-stop-02: var(--purple-0); /* Glow Cards / primary / gradient-02-stop-02. Light: purple-0 (#6a3cdf); dark: purple-0 (#6a3cdf). */
+  --glow-cards-primary-primary: var(--green-0-50); /* Glow Cards / primary / primary. Light: green-0-50 (rgba(98,231,116,0.5)); dark: green-0-70 (rgba(98,231,116,0.7)). */
+  --glow-cards-secondary-elevation-left: var(--purple-d2-20); /* Glow Cards / secondary / elevation-left. Light: purple-d2-20 (rgba(76,38,167,0.2)); dark: purple-l3-20 (rgba(203,198,255,0.2)). */
+  --glow-cards-secondary-elevation-right: var(--purple-0-40); /* Glow Cards / secondary / elevation-right. Light: purple-0-40 (rgba(106,60,223,0.4)); dark: purple-0-50 (rgba(106,60,223,0.5)). */
+  --glow-cards-secondary-gradient-stop-01: var(--purple-0-50); /* Glow Cards / secondary / gradient-stop-01. Light: purple-0-50 (rgba(106,60,223,0.5)); dark: purple-l2-60 (rgba(170,158,255,0.6)). */
+  --glow-cards-secondary-gradient-stop-02: var(--purple-0); /* Glow Cards / secondary / gradient-stop-02. Light: purple-0 (#6a3cdf); dark: purple-0 (#6a3cdf). */
+
+  /* Icon */
+  --icon-bg-alternate-01: var(--saline-0); /* Icon / bg / alternate-01. Light: saline-0 (#8ba8fe); dark: saline-0 (#8ba8fe). */
+  --icon-bg-alternate-02: var(--xray-0); /* Icon / bg / alternate-02. Light: xray-0 (#63e9e2); dark: xray-0 (#63e9e2). */
+  --icon-bg-alternate-03: var(--pepto-0); /* Icon / bg / alternate-03. Light: pepto-0 (#ff7fbe); dark: pepto-0 (#ff7fbe). */
+  --icon-bg-error: var(--red-0); /* Icon / bg / error. Light: red-0 (#e01900); dark: red-0 (#e01900). */
+  --icon-bg-primary: var(--purple-0); /* Icon / bg / primary. Light: purple-0 (#6a3cdf); dark: purple-l3 (#cbc6ff). */
+  --icon-bg-secondary: var(--neutral-l5); /* Icon / bg / secondary. Light: neutral-l5 (#ffffff); dark: neutral-l5 (#ffffff). */
+  --icon-bg-success: var(--green-d1); /* Icon / bg / success. Light: green-d1 (#34cb48); dark: green-d1 (#34cb48). */
+  --icon-icon-color-primary: var(--neutral-l5); /* Icon / icon-color / primary. Light: neutral-l5 (#ffffff); dark: neutral-l5 (#ffffff). */
+  --icon-icon-color-secondary: var(--purple-0); /* Icon / icon-color / secondary. Light: purple-0 (#6a3cdf); dark: purple-0 (#6a3cdf). */
+  --icon-icon-color-secondary-glass: var(--purple-0); /* Icon / icon-color / secondary-glass. Light: purple-0 (#6a3cdf); dark: neutral-l5 (#ffffff). */
+
+  /* Link Color */
+  --link-color-alternate: var(--neutral-l5); /* Link Color / alternate. Light: neutral-l5 (#ffffff); dark: neutral-l5 (#ffffff). On background-primary: 1.00:1 light, 16.11:1 dark. */
+  --link-color-primary: var(--text-color-primary); /* Link Color / primary. Light: text-color-primary (#212121); dark: text-color-primary (#ffffff). On background-primary: 16.10:1 light, 16.11:1 dark. */
+  --link-color-secondary: var(--text-color-focus); /* Link Color / secondary. Light: text-color-focus (#6a3cdf); dark: text-color-focus (#cbc6ff). On background-primary: 6.32:1 light, 10.02:1 dark. */
+
+  /* Logo Color */
+  --logo-color-primary: var(--neutral-d4); /* Logo Color / primary. Light: neutral-d4 (#212121); dark: neutral-l5 (#ffffff). */
+  --logo-color-secondary: var(--text-color-focus); /* Logo Color / secondary. Light: text-color-focus (#6a3cdf); dark: text-color-focus (#cbc6ff). */
+
+  /* Petri Cards */
+  --petri-cards-background: var(--purple-l5); /* Petri Cards / background. Light: purple-l5 (#ecebff); dark: purple-l1-60 (rgba(137,106,255,0.6)). */
+  --petri-cards-border-gradient-stop-01: var(--neutral-l5-0); /* Petri Cards / border-gradient-stop-01. Light: neutral-l5-0 (rgba(255,255,255,0)); dark: purple-l3-0 (rgba(203,198,255,0)). */
+  --petri-cards-border-gradient-stop-02: var(--neutral-l5); /* Petri Cards / border-gradient-stop-02. Light: neutral-l5 (#ffffff); dark: purple-l3 (#cbc6ff). */
+  --petri-cards-elevation: var(--neutral-d4-10); /* Petri Cards / elevation. Light: neutral-d4-10 (rgba(33,33,33,0.1)); dark: neutral-d4-60 (rgba(33,33,33,0.6)). */
+  --petri-cards-highlight: var(--neutral-l5); /* Petri Cards / highlight. Light: neutral-l5 (#ffffff); dark: neutral-l5 (#ffffff). */
+  --petri-cards-inner-shadow: var(--neutral-d4-10); /* Petri Cards / inner-shadow. Light: neutral-d4-10 (rgba(33,33,33,0.1)); dark: neutral-d4-50 (rgba(33,33,33,0.5)). */
+  --petri-cards-inner-shadow-light: var(--purple-l1-10); /* Petri Cards / inner-shadow-light. Light: purple-l1-10 (rgba(137,106,255,0.1)); dark: purple-d2-60 (rgba(76,38,167,0.6)). */
+  --petri-cards-noise: var(--purple-l1-30); /* Petri Cards / noise. Light: purple-l1-30 (rgba(137,106,255,0.3)); dark: purple-l1-30 (rgba(137,106,255,0.3)). */
+
+  /* Tags */
+  --tags-bg-alternate-01: var(--pepto-0); /* Tags / bg / alternate-01. Light: pepto-0 (#ff7fbe); dark: pepto-0 (#ff7fbe). */
+  --tags-bg-primary: var(--purple-l5); /* Tags / bg / primary. Light: purple-l5 (#ecebff); dark: purple-l5 (#ecebff). */
+  --tags-bg-secondary: var(--saline-0); /* Tags / bg / secondary. Light: saline-0 (#8ba8fe); dark: saline-0 (#8ba8fe). */
+  --tags-text-primary: var(--purple-0); /* Tags / text / primary. Light: purple-0 (#6a3cdf); dark: purple-0 (#6a3cdf). */
+  --tags-text-secondary: var(--neutral-l5); /* Tags / text / secondary. Light: neutral-l5 (#ffffff); dark: neutral-l5 (#ffffff). On tags-bg-secondary (saline-500) this is 2.30:1 and FAILS AA for 14px labels — kept as Figma defines it; fix in Figma. */
+
+  /* Text Annotations */
+  --text-annotations-primary: var(--green-0); /* Text Annotations / primary. Light: green-0 (#62e774); dark: green-0 (#62e774). */
+
+  /* Text Color */
+  --text-color-error: var(--red-0); /* Text Color / error. Light: red-0 (#e01900); dark: red-l2 (#ffecea). On background-primary: 4.87:1 light, 14.15:1 dark. */
+  --text-color-focus: var(--purple-0); /* Text Color / focus. Light: purple-0 (#6a3cdf); dark: purple-l3 (#cbc6ff). On background-primary: 6.32:1 light, 10.02:1 dark. */
+  --text-color-focus-dark: var(--purple-d3); /* Text Color / focus-dark. Light: purple-d3 (#3b0d8b); dark: purple-l3 (#cbc6ff). On background-primary: 12.99:1 light, 10.02:1 dark. */
+  --text-color-footnote: var(--neutral-d2); /* Text Color / footnote. Light: neutral-d2 (#6e6e6e); dark: neutral-l5-80 (rgba(255,255,255,0.8)). On background-primary: 5.10:1 light, 10.45:1 dark. */
+  --text-color-primary: var(--neutral-d4); /* Text Color / primary. Light: neutral-d4 (#212121); dark: neutral-l5 (#ffffff). On background-primary: 16.10:1 light, 16.11:1 dark. */
+  --text-color-secondary: var(--neutral-d2); /* Text Color / secondary. Light: neutral-d2 (#6e6e6e); dark: neutral-l5-80 (rgba(255,255,255,0.8)). On background-primary: 5.10:1 light, 10.45:1 dark. */
+  --text-color-success: var(--green-d3); /* Text Color / success. Light: green-d3 (#117e21); dark: green-l3 (#c6fbcd). On background-primary: 5.21:1 light, 13.87:1 dark. */
+  --text-color-warning: var(--orange-d1); /* Text Color / warning. Light: orange-d1 (#bf3c00); dark: orange-l2 (#fff2ea). On background-primary: 5.44:1 light, 14.68:1 dark. */
+}
+
+[data-theme="dark"] {
+
+  /* Background */
+  --background-alternate-01: var(--purple-d2);
+  --background-alternate-02: var(--purple-0);
+  --background-primary: var(--purple-d4);
+  --background-secondary: var(--purple-d3);
+
+  /* Border Color */
+  --border-color-focus: var(--purple-0);
+  --border-color-primary: var(--neutral-l5-10);
+  --border-color-secondary: var(--neutral-l5-30);
+
+  /* Bubble Cards */
+  --bubble-cards-bg-primary: var(--neutral-l5-0);
+  --bubble-cards-depth-highlight-sharp: var(--neutral-l5-30);
+  --bubble-cards-depth-highlight-soft: var(--neutral-l5-30);
+  --bubble-cards-depth-inner-shadow: var(--neutral-d5-20);
+
+  /* Buttons */
+  --buttons-bg-primary: var(--neutral-l5);
+  --buttons-bg-primary-hover: var(--purple-0);
+  --buttons-bg-secondary: var(--neutral-l5-0);
+  --buttons-bg-secondary-border: var(--neutral-l5);
+  --buttons-bg-secondary-border-hover: var(--neutral-l5-50);
+  --buttons-bg-secondary-hover: var(--neutral-l5-0);
+  --buttons-text-primary: var(--purple-0);
+  --buttons-text-primary-hover: var(--neutral-l5);
+  --buttons-text-secondary: var(--neutral-l5);
+  --buttons-text-secondary-hover: var(--neutral-l5);
+
+  /* Elevation */
+  --elevation-primary: var(--neutral-d5-10);
+  --elevation-secondary: var(--neutral-d5-20);
+
+  /* Glass Cards */
+  --glass-cards-bg-alternate-01: var(--saline-d1-40);
+  --glass-cards-bg-alternate-02: var(--xray-d1-50);
+  --glass-cards-bg-alternate-03: var(--pepto-d1-50);
+  --glass-cards-bg-error: var(--red-0-40);
+  --glass-cards-bg-primary: var(--neutral-l4-20);
+  --glass-cards-bg-secondary: var(--purple-0-60);
+  --glass-cards-bg-success: var(--green-d1-50);
+  --glass-cards-depth-highlight-sharp: var(--neutral-l5-30);
+  --glass-cards-depth-highlight-soft: var(--neutral-l5-50);
+  --glass-cards-depth-highlight-softer: var(--neutral-l5-10);
+  --glass-cards-depth-inner-shadow: var(--neutral-d5-5);
+
+  /* Glow Cards */
+  --glow-cards-alternate-01-elevation-left: var(--saline-d1-30);
+  --glow-cards-alternate-01-elevation-right: var(--saline-0-30);
+  --glow-cards-alternate-01-gradient-stop-01: var(--saline-d1);
+  --glow-cards-alternate-01-gradient-stop-02: var(--saline-l3-50);
+  --glow-cards-alternate-02-elevation-left: var(--pepto-l1-30);
+  --glow-cards-alternate-02-elevation-right: var(--pepto-d1-50);
+  --glow-cards-alternate-02-gradient-stop-01: var(--purple-l1-80);
+  --glow-cards-alternate-02-gradient-stop-02: var(--pepto-0);
+  --glow-cards-alternate-03-elevation-left: var(--green-0-20);
+  --glow-cards-alternate-03-elevation-right: var(--xray-d1-20);
+  --glow-cards-alternate-03-gradient-stop-01: var(--green-l2-80);
+  --glow-cards-alternate-03-gradient-stop-02: var(--xray-d1-60);
+  --glow-cards-primary-elevation-left: var(--pepto-d1-30);
+  --glow-cards-primary-elevation-right: var(--purple-0-40);
+  --glow-cards-primary-gradient-01-stop-01: var(--pepto-d1-0);
+  --glow-cards-primary-gradient-01-stop-02: var(--pepto-d1);
+  --glow-cards-primary-gradient-02-stop-01: var(--purple-0-50);
+  --glow-cards-primary-gradient-02-stop-02: var(--purple-0);
+  --glow-cards-primary-primary: var(--green-0-70);
+  --glow-cards-secondary-elevation-left: var(--purple-l3-20);
+  --glow-cards-secondary-elevation-right: var(--purple-0-50);
+  --glow-cards-secondary-gradient-stop-01: var(--purple-l2-60);
+  --glow-cards-secondary-gradient-stop-02: var(--purple-0);
+
+  /* Icon */
+  --icon-bg-alternate-01: var(--saline-0);
+  --icon-bg-alternate-02: var(--xray-0);
+  --icon-bg-alternate-03: var(--pepto-0);
+  --icon-bg-error: var(--red-0);
+  --icon-bg-primary: var(--purple-l3);
+  --icon-bg-secondary: var(--neutral-l5);
+  --icon-bg-success: var(--green-d1);
+  --icon-icon-color-primary: var(--neutral-l5);
+  --icon-icon-color-secondary: var(--purple-0);
+  --icon-icon-color-secondary-glass: var(--neutral-l5);
+
+  /* Link Color */
+  --link-color-alternate: var(--neutral-l5);
+  --link-color-primary: var(--text-color-primary);
+  --link-color-secondary: var(--text-color-focus);
+
+  /* Logo Color */
+  --logo-color-primary: var(--neutral-l5);
+  --logo-color-secondary: var(--text-color-focus);
+
+  /* Petri Cards */
+  --petri-cards-background: var(--purple-l1-60);
+  --petri-cards-border-gradient-stop-01: var(--purple-l3-0);
+  --petri-cards-border-gradient-stop-02: var(--purple-l3);
+  --petri-cards-elevation: var(--neutral-d4-60);
+  --petri-cards-highlight: var(--neutral-l5);
+  --petri-cards-inner-shadow: var(--neutral-d4-50);
+  --petri-cards-inner-shadow-light: var(--purple-d2-60);
+  --petri-cards-noise: var(--purple-l1-30);
+
+  /* Tags */
+  --tags-bg-alternate-01: var(--pepto-0);
+  --tags-bg-primary: var(--purple-l5);
+  --tags-bg-secondary: var(--saline-0);
+  --tags-text-primary: var(--purple-0);
+  --tags-text-secondary: var(--neutral-l5);
+
+  /* Text Annotations */
+  --text-annotations-primary: var(--green-0);
+
+  /* Text Color */
+  --text-color-error: var(--red-l2);
+  --text-color-focus: var(--purple-l3);
+  --text-color-focus-dark: var(--purple-l3);
+  --text-color-footnote: var(--neutral-l5-80);
+  --text-color-primary: var(--neutral-l5);
+  --text-color-secondary: var(--neutral-l5-80);
+  --text-color-success: var(--green-l3);
+  --text-color-warning: var(--orange-l2);
+}

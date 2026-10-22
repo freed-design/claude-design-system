@@ -6,7 +6,7 @@ touch that feels natural and personal. Extracted verbatim from the brand file as
 
 Rules (Brand Guide 2.0, §06):
 
-- **Always Freed Focus green `#62E774`** (`--green-0`) — never any other color. The
+- **Always Freed Focus green `#62E774`** (`--text-annotations-primary`, which resolves to `green-0`) — never any other color. The
   components enforce this: `style.color` overrides are ignored with a warning.
 - **Lines are solid width with rounded endpoints** — baked into the vectors; never redraw
   them with tapered, dashed, or square-capped strokes. Default weight is 3px; pass

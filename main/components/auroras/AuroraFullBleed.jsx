@@ -10,7 +10,7 @@ const SCENES = {
   funnel: ['purple', 'purple-peach', 'moss-aqua'],
 };
 
-/* Colorways light enough that --ink display text clears AA on top of them.
+/* Colorways light enough that --text-color-primary display text clears AA on top of them.
    The saturated ones take WHITE display text instead. Mid-tones take neither
    and need the copy on a Card. */
 const TEXT_SAFE = {

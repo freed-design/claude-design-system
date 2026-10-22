@@ -1,6 +1,6 @@
 <!-- @dsCard group="03 Auroras" viewport="700x680" name="Auroras" subtitle="Singles, floats and full-bleed scenes — one aurora per view" -->
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>*{box-sizing:border-box}html,body{margin:0}body{width:700px;font-family:var(--font-sans);color:var(--ink);background:#fff;padding:16px 20px}.h{font:600 10px/1 var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--neutral-500);margin:0 0 8px}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.cell{display:flex;flex-direction:column;gap:5px}.cap{font:500 9px/1.2 var(--font-mono);color:var(--neutral-500)}.tile{aspect-ratio:16/9;border-radius:8px;overflow:hidden;position:relative}.tile img{width:100%;height:100%;object-fit:cover;display:block}.safe{position:absolute;left:5px;bottom:4px;font:600 8px var(--font-sans);color:var(--ink);background:rgba(255,255,255,.75);border-radius:4px;padding:1px 4px}.hero{margin-top:14px}</style></head>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>*{box-sizing:border-box}html,body{margin:0}body{width:700px;font-family:var(--font-family-body);color:var(--text-color-primary);background:#fff;padding:16px 20px}.h{font:600 10px/1 var(--font-family-body);letter-spacing:.07em;text-transform:uppercase;color:var(--neutral-600);margin:0 0 8px}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.cell{display:flex;flex-direction:column;gap:5px}.cap{font:500 9px/1.2 ui-monospace,'SF Mono',Menlo,monospace;color:var(--neutral-600)}.tile{aspect-ratio:16/9;border-radius:8px;overflow:hidden;position:relative}.tile img{width:100%;height:100%;object-fit:cover;display:block}.safe{position:absolute;left:5px;bottom:4px;font:600 8px var(--font-family-body);color:var(--text-color-primary);background:rgba(255,255,255,.75);border-radius:4px;padding:1px 4px}.hero{margin-top:14px}</style></head>
 <body>
 <p class="h">Orb · ten colorways</p>
 <div class="grid" id="orb"></div>
@@ -51,11 +51,11 @@ ReactDOM.createRoot(document.getElementById('float')).render(
 ReactDOM.createRoot(document.getElementById('demo')).render(
   <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}>
     <AuroraFullBleed composition="orb" colorway="purple" position="left center" style={{borderRadius:12,height:120,display:'flex',alignItems:'center',padding:'0 20px'}}>
-      <span className="heading-style-h4 heading-white">Focus on people, not paperwork</span>
+      <span className="headlines-h4 heading-white">Focus on people, not paperwork</span>
     </AuroraFullBleed>
     <div style={{position:'relative',height:120,overflow:'hidden',borderRadius:12}}>
       <AuroraFloat float="ember" colorway="coral-yellow" width={300} style={{position:'absolute',right:-40,top:-60,zIndex:0}}/>
-      <span className="heading-style-h4" style={{position:'relative',display:'block',padding:'42px 0 0 18px',maxWidth:260}}>Work doesn't follow you home</span>
+      <span className="headlines-h4" style={{position:'relative',display:'block',padding:'42px 0 0 18px',maxWidth:260}}>Work doesn't follow you home</span>
     </div>
   </div>
 );

@@ -1,0 +1,26 @@
+/* FREED — Effects: the Figma effect styles as box-shadow values
+   GENERATED from the Figma file "01_Semantic - General" (figma-references/semantic-general-10-21-26.fig).
+   Figma is the source of truth: change values there, then regenerate. */
+/* Each --effect-* is a complete box-shadow list. Colours come from the Theme tokens, so they switch with
+   [data-theme="dark"] automatically. Figma "Glass" and "Noise" layers have no box-shadow equivalent:
+   glass-card and icon/glass also need backdrop-filter: blur(4px); petri-card/inner adds a purple grain (see Card).
+   Declared on every [data-theme] element too, so the var() colours resolve against that element's theme. */
+:root, [data-theme] {
+  --effect-bubble-card-elevation-none: inset -6px -6px 21px 2px var(--bubble-cards-depth-inner-shadow), inset 1px 1px 3px 0 var(--bubble-cards-depth-highlight-soft), inset 0.5px 0.5px 0.5px 0 var(--bubble-cards-depth-highlight-sharp); /* bubble-card/elevation-none */
+  --effect-bubble-card-elevation-primary: 4px 6px 9px 0 var(--elevation-primary), -0.2px -0.2px 3px 0 var(--elevation-primary), inset -6px -6px 21px 2px var(--bubble-cards-depth-inner-shadow), inset 1px 1px 3px 0 var(--bubble-cards-depth-highlight-soft), inset 0.5px 0.5px 0.5px 0 var(--bubble-cards-depth-highlight-sharp); /* bubble-card/elevation-primary */
+  --effect-bubble-card-elevation-small: 2px 2px 7px 0 var(--elevation-secondary), inset -6px -6px 21px 2px var(--bubble-cards-depth-inner-shadow), inset 1px 1px 3px 0 var(--bubble-cards-depth-highlight-soft), inset 0.5px 0.5px 0.5px 0 var(--bubble-cards-depth-highlight-sharp); /* bubble-card/elevation-small */
+  --effect-elevation-primary: 8px 16px 24px 0 var(--elevation-primary), 0 2px 3px 0 var(--elevation-primary); /* elevation/primary */
+  --effect-elevation-small: 0 8px 8px 0 var(--elevation-primary), 0 2px 3px 0 var(--elevation-primary); /* elevation/small */
+  --effect-elevation-tiny: 2px 4px 4px 0 var(--elevation-primary), 0 1px 3px 0 var(--elevation-primary); /* elevation/tiny */
+  --effect-glass-card-elevation-none: inset -0.5px -0.5px 0.5px 0 var(--glass-cards-depth-highlight-softer), inset 11px 12px 23px 0 var(--glass-cards-depth-inner-shadow), inset 1px 1px 0.5px 0 var(--glass-cards-depth-highlight-sharp); /* glass-card/elevation-none. glass: frost blur 4px (CSS: backdrop-filter: blur(4px)); Figma also adds refraction 20 and a specular edge that CSS cannot reproduce */
+  --effect-glass-card-elevation-primary: 4px 6px 9px 0 var(--elevation-primary), -0.2px -0.2px 3px 0 var(--elevation-primary), inset -0.5px -0.5px 0.5px 0 var(--glass-cards-depth-highlight-softer), inset 11px 12px 23px 0 var(--glass-cards-depth-inner-shadow), inset 1px 1px 0.5px 0 var(--glass-cards-depth-highlight-sharp); /* glass-card/elevation-primary. glass: frost blur 4px (CSS: backdrop-filter: blur(4px)); Figma also adds refraction 20 and a specular edge that CSS cannot reproduce */
+  --effect-glass-card-elevation-small: 2px 2px 7px 0 var(--elevation-secondary), inset -0.5px -0.5px 0.5px 0 var(--glass-cards-depth-highlight-softer), inset 11px 12px 23px 0 var(--glass-cards-depth-inner-shadow), inset 1px 1px 0.5px 0 var(--glass-cards-depth-highlight-sharp); /* glass-card/elevation-small. glass: frost blur 4px (CSS: backdrop-filter: blur(4px)); Figma also adds refraction 20 and a specular edge that CSS cannot reproduce */
+  --effect-glow-card-alternate-01: 7px 7px 16px 0 var(--glow-cards-alternate-01-elevation-right), -7px -7px 16px 0 var(--glow-cards-alternate-01-elevation-left); /* glow-card/alternate-01 */
+  --effect-glow-card-alternate-02: 7px 7px 16px 0 var(--glow-cards-alternate-02-elevation-right), -7px -7px 16px 0 var(--glow-cards-alternate-02-elevation-left); /* glow-card/alternate-02 */
+  --effect-glow-card-alternate-03: 7px 7px 16px 0 var(--glow-cards-alternate-03-elevation-right), -7px -7px 16px 0 var(--glow-cards-alternate-03-elevation-left); /* glow-card/alternate-03 */
+  --effect-glow-card-primary: 7px 7px 16px 0 var(--glow-cards-primary-elevation-right), -7px -7px 16px 0 var(--glow-cards-primary-elevation-left); /* glow-card/primary */
+  --effect-glow-card-secondary: 7px 7px 16px 0 var(--glow-cards-secondary-elevation-right), -7px -7px 16px 0 var(--glow-cards-secondary-elevation-left); /* glow-card/secondary */
+  --effect-icon-glass: 0 3.37px 6px 0 var(--elevation-primary), inset -2px -1px 4px 0 var(--glass-cards-depth-inner-shadow), inset 2px 3px 4px 0 rgba(255,255,255,0.3); /* icon/glass. glass: frost blur 4px (CSS: backdrop-filter: blur(4px)); Figma also adds refraction 50 and a specular edge that CSS cannot reproduce */
+  --effect-petri-card-inner: inset 10px 9px 8px -58px var(--petri-cards-inner-shadow-light); /* petri-card/inner. noise grain in rgba(137,106,255,0.3) */
+  --effect-petri-card-outer: -0.1px -0.1px 1px 0 var(--petri-cards-elevation), 0.1px 0.1px 2px 0 var(--petri-cards-elevation), inset -1px -1px 10px 1px var(--petri-cards-inner-shadow), inset 0 0 4.1px 0 var(--petri-cards-highlight); /* petri-card/outer */
+}

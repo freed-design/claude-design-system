@@ -1,0 +1,24 @@
+<!-- @dsCard group="01 Brand" viewport="700x330" name="Logos and badges" subtitle="Freed full, icon and text in the approved colours; HIPAA, SOC 2, certification and Loved by badges" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><style>*{box-sizing:border-box}html,body{margin:0}body{width:700px;font-family:var(--font-family-body);color:var(--text-color-primary);background:var(--background-primary);padding:16px 20px}.h{font:600 10px/1 var(--font-family-body);letter-spacing:.07em;text-transform:uppercase;color:var(--text-color-secondary);margin:0 0 8px}.row{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-bottom:18px}.dark{background:var(--purple-600);padding:14px 18px;border-radius:var(--border-radius-small);display:flex;gap:24px;align-items:center}</style></head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" data-presets="react">
+const { Logo } = window.FreedDesignSystem_e5ae95;
+function Demo() {
+  return <div>
+    <p className="h">Freed · full, icon, text — primary and secondary</p>
+    <div className="row">{['full','icon','text'].map(t => <Logo key={t} type={t} height={28} />)}{['full','icon','text'].map(t => <Logo key={'s'+t} type={t} color="secondary" height={28} />)}</div>
+    <p className="h">White on purple-600</p>
+    <div className="row"><div className="dark"><Logo color="white" height={28} /><Logo name="certification" color="white" height={40} /></div></div>
+    <p className="h">Badges</p>
+    <div className="row"><Logo name="hipaa" height={40} /><Logo name="soc2" height={56} /><Logo name="certification" height={48} /><Logo name="loved-by" height={56} /></div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
+</body></html>

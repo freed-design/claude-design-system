@@ -1,32 +1,60 @@
-/* FREED — Radii, elevation, spacing (4pt base). */
+/* FREED — Layout: border radius, border width, spacing, padding and containers
+   GENERATED from the Figma file "01_Semantic - General" (figma-references/semantic-general-10-21-26.fig).
+   Figma is the source of truth: change values there, then regenerate. Names follow Figma's names. */
 :root {
-  /* ---------- RADII ---------- */
-  --radius-xs: 6px;
-  --radius-sm: 8px;     /* corner-radius-small */
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-xl: 30px;    /* corner-radius (cards, large surfaces) */
-  --radius-pill: 999px;
 
-  /* ---------- ELEVATION ---------- */
-  /* Soft, low-contrast cool shadows (rgba(16,24,40,...)) */
-  --shadow-xs: 0 1px 2px rgba(16,24,40,0.05);
-  --shadow-sm: 0 1px 3px rgba(16,24,40,0.08), 0 1px 2px rgba(16,24,40,0.03);
-  --shadow-md: 0 4px 12px rgba(16,24,40,0.08), 0 2px 4px rgba(16,24,40,0.04);
-  --shadow-lg: 0 12px 32px rgba(16,24,40,0.10), 0 4px 8px rgba(16,24,40,0.05);
+  /* Border Radius */
+  --border-radius-xsmall: 4px; /* Corner radius / xsmall. */
+  --border-radius-small: 8px; /* Corner radius / small. */
+  --border-radius-primary: 16px; /* Corner radius / primary. */
+  --border-radius-large: 32px; /* Corner radius / large. */
+  --border-radius-full: 999px; /* Corner radius / full. */
 
-  /* ---------- SPACING (4pt base) ---------- */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
+  /* Border Width */
+  --border-width-xsmall: 0.5px; /* Stroke width / xsmall. */
+  --border-width-small: 0.75px; /* Stroke width / small. */
+  --border-width-primary: 1px; /* Stroke width / primary. */
+  --border-width-medium: 1.75px; /* Stroke width / medium. */
+  --border-width-large: 2px; /* Stroke width / large. */
+  --border-width-xlarge: 3px; /* Stroke width / xlarge. */
 
+  /* Button Padding */
+  --button-padding-y-xsmall: 12px; /* Button padding / y-xsmall. */
+  --button-padding-x-xsmall: 16px; /* Button padding / x-xsmall. */
+  --button-padding-y-small: 19px; /* Button padding / y-small. */
+  --button-padding-y-primary: 25px; /* Button padding / y-primary. */
+  --button-padding-y-large: 27px; /* Button padding / y-large. */
+  --button-padding-x-small: 30px; /* Button padding / x-small. */
+  --button-padding-x-large: 40px; /* Button padding / x-large. */
+  --button-padding-x-primary: 40px; /* Button padding / x-primary. */
+
+  /* Card Padding */
+  --card-padding-small: 16px; /* Card padding / small. */
+  --card-padding-primary: 32px; /* Card padding / primary. */
+  --card-padding-large: 48px; /* Card padding / large. */
+  --card-padding-xlarge: 64px; /* Card padding / xlarge. */
+
+  /* Container */
+  --container-tiny: 484px; /* Max content width / tiny. */
+  --container-xsmall: 742px; /* Max content width / xsmall. */
+  --container-small: 1000px; /* Max content width / small. */
+  --container-medium: 1248px; /* Max content width / medium. */
+  --container-primary: 1520px; /* Max content width / primary. */
+  --container-large: 1620px; /* Max content width / large. */
+
+  /* Spacing */
+  --spacing-none: 0px; /* Spacing step / none. */
+  --spacing-tiny: 2px; /* Spacing step / tiny. */
+  --spacing-xxxsmall: 4px; /* Spacing step / xxxsmall. */
+  --spacing-xxsmall: 8px; /* Spacing step / xxsmall. */
+  --spacing-xsmaller: 12px; /* Spacing step / xsmaller. */
+  --spacing-smaller: 16px; /* Spacing step / smaller. */
+  --spacing-small: 20px; /* Spacing step / small. */
+  --spacing-medium: 32px; /* Spacing step / medium. */
+  --spacing-large: 48px; /* Spacing step / large. */
+  --spacing-xlarge: 64px; /* Spacing step / xlarge. */
+  --spacing-xxlarge: 80px; /* Spacing step / xxlarge. */
+  --spacing-huge: 96px; /* Spacing step / huge. */
+  --spacing-xhuge: 128px; /* Spacing step / xhuge. */
+  --spacing-xxhuge: 192px; /* Spacing step / xxhuge. */
 }
